@@ -1,0 +1,36 @@
+application: marvel-college
+version: 1
+runtime: php55
+api_version: 1
+
+handlers:
+- url: /
+  script: index.html
+
+- url: /css
+  static_dir: css
+
+- url: /fonts
+  static_dir: fonts
+
+- url: /js
+  static_dir: js
+
+
+- url: /images
+  static_dir: images
+
+- url: /index.html
+  script: index.html
+
+- url: /about.html
+  script: about.html
+
+- url: /logout.php
+  script: logout.php
+
+- url: /login.php
+  script: login.php
+
+- url: /.*
+  script: 404.html
