@@ -1,14 +1,39 @@
 <?php
+require_once "connection.php";
+$err=false;
 $user = new Memcached();
+
+if ($user->get('id')!=null) {
+    header("Location: index.html");
+}
 if(isset($_POST['btn-login'])){
 	$email=$_POST['inputEmail'];
-	$password=$_POST['inputEmail'];
-
-	$user->setMulti(['id' => 12345, 'email' => $email, 'password' => $password, 'fname' => "dan"], 300);
-		
+	$password=$_POST['inputPassword'];	
 }
-var_dump($user->get('email'));
-echo "test";
+
+ try {
+
+    // Show existing guestbook entries.
+    foreach($db->query("SELECT * FROM Registration.User where email= '".$email."'") as $row) {
+            $e=$row['email'];
+            $p=$row['password'];
+           
+     }
+  } catch (PDOException $ex) {
+    echo "An error occurred in reading or writing to Registration.";
+  }
+  $db = null;
+
+  if ($password!=null) {
+      if ($password==$row['password']) {
+       $user->setMulti(['id' => $row['userID'], 'email' => $row['email'], 'password' => $row['password'], 'fname' => $row['fName'], 'lname'=>$row['lName'], 'type'=>$row['userType']], 3000);
+       $result = $user->getMulti(array('id', 'fname', 'type'));
+      }else{
+        $err=true;
+      } 
+  }
+
+
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -18,7 +43,7 @@ echo "test";
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="icon" type="image/png" href="images/favicon.png">
-        <title>Timer Agency Template</title>
+        <title>Marvel College-Login</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="">
@@ -98,18 +123,29 @@ echo "test";
 
                             <form action="login.php" method="POST"  class="col-md-6">
                                 <label for="inputEmail" class="sr-only">Email address</label>
-                                <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required>
+                                <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" value="<?php echo $email; ?>" required>
                                 <label for="inputPassword" class="sr-only">Password</label>
                                 <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                 <div class="checkbox">
                                 </div>
                                 <button  name="btn-login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                <br>
+
+                                <?php if ($err) { ?>
+                                <div class="alert alert-danger">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Incorrect email or password</strong> The password or email you have entered is incorrect
+                                </div>
+                                <?php } ?>
+
                             </form>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
-            </section><!--/#main-slider-->
+            </div>
+        </section><!--/#main-slider-->
 
             <!--
             ==================================================
