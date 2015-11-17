@@ -26,6 +26,19 @@ handlers:
 - url: /about.html
   script: about.html
 
+- url: /faculty.html
+  script: faculty.html
+
+- url: /Finfo.html
+  script: Finfo.html
+
+- url: /Fgrade.html
+  script: Fgrade.html
+
+- url: /Fschedule.html
+  script: Fschedule.html
+
+
 - url: /logout.php
   script: logout.php
 
