@@ -2,9 +2,17 @@
 <?php
 //include_once "connection.php";
 //What variables to populate first name and lastname then display following information
-($db->query("SELECT * FROM Registration.User where email= '".$email."'") as $row) {
-            $e=$row['email'];
-            $p=$row['password'];
+$id= $user->get("id");
+$db = "SELECT fName FROM Registration.User WHERE" +$id +"" ;
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        echo "<br> First name: " $row["fname"] ".""<br>"; 
+    }
+    else {
+        echo "0 results";
+    }
+}
+
            
 ?>
 <html class="no-js">

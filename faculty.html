@@ -5,8 +5,9 @@ $user= new Memcached();
 $id = $user->get("id");
 
 if ($user->get("id")!=null){
-    header("Location: faculty.html")
+    header("Location: faculty.html");
 }
+
 ?>
 <html class="no-js">
     <head>
