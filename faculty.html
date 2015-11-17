@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
 //include_once "connection.php";
+$user= new Memcached();
+$id = $user->get("id");
+
+if ($user->get("id")!=null){
+    header("Location: faculty.html")
+}
 ?>
 <html class="no-js">
     <head>
@@ -21,7 +27,7 @@
         <!-- Template CSS Files
         ================================================== -->
         <!-- Twitter Bootstrs CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Ionicons Fonts Css -->
         <link rel="stylesheet" href="css/ionicons.min.css">
         <!-- animate css -->
