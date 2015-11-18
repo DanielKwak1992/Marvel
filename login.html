@@ -3,9 +3,6 @@ $user = new Memcached();
 require_once "connection.php";
 $err=false;
 $id=$user->get('id');
-if ($id != null) {
-    header("Location: index.html");
-}
 
 if(isset($_POST['btn-login'])){
     $email=$_POST['inputEmail'];
@@ -28,10 +25,18 @@ if(isset($_POST['btn-login'])){
       if ($password==$row['password']) {
        $user->setMulti(['id' => $row['userID'], 'email' => $row['email'], 'password' => $row['password'], 'fname' => $row['fName'], 'lname'=>$row['lName'], 'type'=>$row['userType']], 3000);
        $result = $user->getMulti(array('id', 'fname', 'type'));
+       header('Location: /index.html');
       }else{
         $err=true;
       } 
   }
+
+if ($id!=null) {
+    header('Location: /index.html');
+    header("Refresh:0");
+}
+    var_dump($id!=null);
+
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -113,13 +118,13 @@ if(isset($_POST['btn-login'])){
                                 <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
                                 <div class="checkbox">
                                 </div>
-                                <button  name="btn-login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                <button style="background-color:#337ab7" name="btn-login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                                 <br>
 
                                 <?php if ($err) { ?>
                                 <div class="alert alert-danger">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <strong>Incorrect email or password</strong> The password or email you have entered is incorrect
+                                    <strong>Incorrect email or password</strong><br> The password or email you have entered is incorrect
                                 </div>
                                 <?php } ?>
 

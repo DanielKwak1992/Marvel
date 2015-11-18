@@ -5,7 +5,7 @@ $user = new Memcached();
 if (null !=$user->get('id')) {
 echo "test";
 }else{
-    header("Location: Login.php");
+    header("Location: login.html");
 }
 
 if ("student"==$user->get('type')) {
