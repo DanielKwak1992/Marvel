@@ -7,7 +7,7 @@ $user = new Memcached();
 $id=$user->get('id');
 
 
-echo $twig->render('faculty.html');
+echo $twig->render('fgrade.html');
 
 
 

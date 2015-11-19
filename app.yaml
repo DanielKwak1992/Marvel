@@ -26,14 +26,15 @@ handlers:
 - url: /about.html
   script: about.html
 
-- url: /faculty.html
-  script: faculty.html
 
-- url: /Finfo.html
-  script: Finfo.html
+- url: /faculty
+  script: faculty.php
 
-- url: /Fgrade.html
-  script: Fgrade.html
+- url: /finfo
+  script: finfo.php
+
+- url: /fgrade
+  script: fgrade.php
 
 - url: /Fschedule.html
   script: Fschedule.html

@@ -1,0 +1,23 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<section class="works service-page">
+            <div class="container">
+                <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Edit Information</h2>
+                    <p class="subtitle-des wow fadeInUp animated" data-wow-delay=".5s" data-wow-duration="500ms">
+                        Here faculty and staff members can edit/update certain fields pertaining to themselves. </p>
+                       
+                        <div class="col-sm-4">
+                        <form action="action_page.php">
+                            <fieldset>
+                                <legend>Personal information:</legend>
+                             <div class="form-group">First name:<br> <input type="text" class="form-control" name="firstname" value=""> <br>
+                             <div class="form-group">Last name:<br><input type="text" class="form-control" name="lastname" value=""><br>
+                             <div class="form-group">email address:<br><input type="text" class="form-control" name="email" value""><br>
+                             <div class="form-group">Phone number:<br><input type="text" class="form-control" name="number" value""><br><br>
+                             <input type="submit" value="Submit">
+                             </fieldset>
+                        </form>
+                    </div>      
+        </section>
+        {% endblock %}
