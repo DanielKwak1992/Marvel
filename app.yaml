@@ -20,7 +20,7 @@ handlers:
 - url: /images
   static_dir: images
 
-- url: /index.html
+- url: /index
   script: index.html
 
 - url: /about.html
@@ -38,16 +38,14 @@ handlers:
 - url: /Fschedule.html
   script: Fschedule.html
 
+- url: /test
+  script: test.php
 
 - url: /logout.php
   script: logout.php
 
-- url: /login.html
-  script: login.html
-
-- url: /login2.html
-  script: login2.html
-
+- url: /login
+  script: login.php
 
 - url: /.*
   script: 404.html
