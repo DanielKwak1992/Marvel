@@ -1,22 +1,39 @@
 <?php
 $user = new Memcached();
+$type=$user->get('type');
 
 
-if (null !=$user->get('id')) {
-echo "test";
+if (null != $type) {
+
 }else{
     header("Location: login.html");
 }
 
-if ("student"==$user->get('type')) {
-	# code...
-}elseif ("faculty"==$user->get('type')) {
-	# code...
-}elseif ("admin"==$user->get('type')) {
-	# code...
-}elseif ("researcher"==$user->get('type')) {
-	# code...
-}
+//if $type = pageuser
 
+switch ($type) {
+  case 'student':
+    header('Location: /student');
+    break;
+switch ($type) {
+  case 'faculty':
+    header('Location: /faculty');
+    break;
+
+switch ($type) {
+  case 'admin':
+    header('Location: /admin');
+    break;
+
+switch ($type) {
+  case 'researcher':
+    # code...
+    break;
+
+  default:
+    header('Location: /index');
+    break;
+}
+//endif
 
 ?>

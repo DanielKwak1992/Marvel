@@ -4,9 +4,9 @@ $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
 $user = new Memcached();
 $id=$user->get('id');
+$type=$user->get('type');
 
-
-	$twig->render('test.html');
+echo $twig->render('test.html',array('id'=>$id, 'type' => "admin" ));
 
 
 

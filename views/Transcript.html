@@ -1,0 +1,36 @@
+{% extends "Template.html" %}
+{% block content %}
+	<form action="">
+
+		<div class="form-group">
+			<label for="sel1">Select Semester</label>
+		  		<select class="form-control" id="semester">
+			    	<option>1</option>
+			    	<option>2</option>
+			    	<option>3</option>
+			    	<option>4</option>
+		  		</select>
+		</div>
+
+		<div class="form-group">
+			<label for="sel1">Select Year</label>
+		  		<select class="form-control" id="year">
+			    	<option>1</option>
+			    	<option>2</option>
+			    	<option>3</option>
+			    	<option>4</option>
+		  		</select>
+		</div>
+
+	</form>
+
+<table>
+	{# this outputs the result(array) where i is the key and data is the array passed. #}
+    {% for i in data %}
+		<tr>
+		    <td> {{i.email}} </td>
+		</tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

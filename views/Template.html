@@ -7,7 +7,17 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="icon" type="image/png" href="images/favicon.png">
-        <title>Faculty Home</title>
+        <title>
+            {% if type == "faculty" %}
+             Faculty Home 
+            {% elseif type == "student" %} 
+             Student Home 
+            {% elseif type == "admin" %} 
+             Admin Home
+            {% elseif type == "researcher" %} 
+             Researcher Home
+            {% endif %}
+        </title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="">
@@ -82,18 +92,17 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <div class="main-menu">
                          <ul class="nav navbar-nav navbar-right">
-                            {% if user == faculty  %}
-                            <li><a href="faculty.html" >Home</a></li>
+                            {% if type == "faculty"  %}
+                            <li><a href="faculty" >Home</a></li>
                             <li><a href="Fgrade.html">Grades</a></li>
-                            <li><a href="Fschedule.html">Schedule</a></li>
                             <li><a href="Finfo.html">Edit Information</a></li>
                             {% endif %}
 
-                            {% if user == student  %}
-                            <li><a href="faculty.html" >Home</a></li>
-                            <li><a href="Fgrade.html">Grades</a></li>
-                            <li><a href="Fschedule.html">Schedule</a></li>
-                            <li><a href="Finfo.html">Edit Information</a></li>
+                            {% if type == "student"  %}
+                            <li><a href="/student" >Home</a></li>
+                            <li><a href="/transcript">Transcript</a></li>
+                            <li><a href="/schedule">Schedule</a></li>
+                            <li><a href="/advisor">advisor</a></li>
                             {% endif %}
 
                         </ul>
@@ -108,7 +117,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="block">
-                            <h2>Faculty Home</h2>
+                            <h2>
+                                {% if type == "faculty" %}
+                                 Faculty Home 
+                                 {% elseif type == "student" %} 
+                                 Student Home 
+                                 {% elseif type == "admin" %} 
+                                 Admin Home
+                                 {% elseif type == "researcher" %} 
+                                 Researcher homepage 
+                                 {% endif %}
+                             </h2>
             
                         </div>
                     </div>

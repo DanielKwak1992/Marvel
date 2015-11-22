@@ -1,0 +1,94 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<h1 class="text-center headline wow fadeInUp animated">Welcome {{fname}} {{lname}}</h1>
+<section class="works service-page">
+    <div class="container">
+        <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Page Navigation</h2>
+            <p class="subtitle-des wow fadeInUp animated" data-wow-delay=".5s" data-wow-duration="500ms">
+                Welcome to the Student Homepage. You can use these links to navigate to parts of the student site.
+            </p>
+        <div class="row">
+            <div class="col-sm-3">
+                 <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/item-1.jpg" class="img-responsive" alt="this is a title" >
+                        <a href="/transcript"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/transcript">
+                                Transcript
+                            </a>
+                        </h4>
+                        <p>
+                            View your Unoffical Transcript
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/item-2.jpg" class="img-responsive" alt="this is a title" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="#">
+                                Schedule     
+                            </a>
+                        </h4>
+                        <p>
+                            Lookup your Schedule
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/item-3.jpg" class="img-responsive" alt="" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="#">
+                                Add/Drop Courses        
+                            </a>
+                        </h4>
+                        <p>
+                            Register or drop courses
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/item-4.jpg" class="img-responsive" alt="" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="#">
+                                Advisor      
+                            </a>
+                        </h4>
+                        <p>
+                            Find your advisor!
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+           
+
+        </div>
+
+        
+</section>
+{% endblock %}

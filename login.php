@@ -20,7 +20,6 @@ if(isset($_POST['btn-login'])){
 
 
  try {
-    // Show existing guestbook entries.
     foreach($db->query("SELECT * FROM Registration.User where email= '".$email."'  ") as $row) {
             $e=$row['email'];
             $p=$row['password'];
@@ -34,10 +33,30 @@ if(isset($_POST['btn-login'])){
   if ($password!=null) {
       if ($password==$row['password']) {
        $user->setMulti(['id' => $row['userID'], 'email' => $row['email'], 'password' => $row['password'], 'fname' => $row['fName'], 'lname'=>$row['lName'], 'type'=>$row['userType']], 3000);
-       $result = $user->getMulti(array('id', 'fname', 'type'));
-       header('Location: /test');
-      }else{
+       $type=$user->get('type');
 
+          switch ($type) {
+            case 'student':
+              header('Location: /student');
+              break;
+
+            case 'faculty':
+              header('Location: /faculty');
+              break;
+
+            case 'admin':
+              header('Location: /admin');
+              break;
+
+            case 'researcher':
+              header('Location: /admin');
+              break;
+
+            default:
+              header('Location: /index');
+              break;
+          };
+      }else{
         $err=true;
         echo $twig->render('login.html',array('error' => $err ));
       } 
