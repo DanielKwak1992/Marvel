@@ -1,0 +1,43 @@
+{% extends "Template.html" %}
+{% block content %}
+
+       <section class="works service-page">
+            <div class="container">
+                <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Student Grading</h2>
+                <h3> Select Semester & Year for Courses</h3>  
+
+                <div class="container">
+                    <h2>Semester</h2>
+    
+                <div class="dropdown">
+                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Semester
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fall</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Winter</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Spring</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Summer</a></li>
+                     </ul>
+                </div>
+                </div>
+
+                 <div class="container">
+                    <h2>Year</h2>
+    
+                <div class="dropdown">
+                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Year
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2015</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2016</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2017</a></li>
+                     </ul>
+                </div>
+                </div>
+                <br>
+
+
+                <center><button type="button" class="btn btn-default">Submit</button></center>
+
+        </section>
+         {% endblock %}

@@ -92,6 +92,7 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <div class="main-menu">
                          <ul class="nav navbar-nav navbar-right">
+
                             {% if type == "faculty"  %}
                             <li><a href="faculty" >Home</a></li>
                             <li><a href="Fgrade.html">Grades</a></li>
@@ -103,6 +104,18 @@
                             <li><a href="/transcript">Transcript</a></li>
                             <li><a href="/schedule">Schedule</a></li>
                             <li><a href="/advisor">advisor</a></li>
+
+                            {% if user == "admin"  %}
+                            <li><a href="faculty.html" >Home</a></li>
+                            <li><a href="fgrade.html">Grades</a></li>
+                            <li><a href="finfo.html">Edit Information</a></li>
+                            {% endif %}
+
+                            {% if user == "researcher"  %}
+                            <li><a href="faculty.html" >Home</a></li>
+                            <li><a href="Fgrade.html">Grades</a></li>
+                            <li><a href="Finfo.html">Edit Information</a></li>
+
                             {% endif %}
 
                         </ul>
