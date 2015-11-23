@@ -1,35 +1,95 @@
 {% extends "Template.html" %}
 {% block content %}
 
-            <section id="blog-full-width">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                                <div class="blog-post-image">
-                                    <a href="post-fullwidth.html"><img class="img-responsive" src="images/blog/post-1.jpg" alt="" /></a>
-                                </div>
-                                <div class="blog-content">
-                                    <h2 class="blogpost-title">
-                                    <a href="post-fullwidth.html">Space shouldn’t be the final frontier</a>
-                                    </h2>
-                                    <div class="blog-meta">
-                                        <span>Dec 11, 2020</span>
-                                        <span>by <a href="">Admin</a></span>
-                                        <span><a href="">business</a>,<a href="">people</a></span>
-                                    </div>
-                                    <p>Ultrices posuere cubilia curae curabitur sit amet tortor ut massa commodo. Vestibulum consectetur euismod malesuada tincidunt cum. Sed ullamcorper dignissim consectetur ut tincidunt eros sed sapien consectetur dictum. Pellentesques sed volutpat ante, cursus port. Praesent mi magna, penatibus et magniseget dis parturient montes sed quia consequuntur magni dolores eos qui ratione.
-                                    </p>
-                                    <a href="single-post.html" class="btn btn-dafault btn-details">Continue Reading</a>
-                                </div>
-                                
-                            </article>
-                        </div>
-                       
-                                
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    {% endblock %}
+<h1 class="text-center headline wow fadeInUp animated">Welcome {{fname}} {{lname}}</h1>
+<section class="works service-page">
+    <div class="container">
+        <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Page Navigation</h2>
+            <p class="subtitle-des wow fadeInUp animated" data-wow-delay=".5s" data-wow-duration="500ms">
+                Welcome to the Faculty Homepage. You can use these links to navigate to parts of the faculty site.
+            </p>
+        <div class="row">
+            <div class="col-sm-3">
+                 <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                    <div class="img-wrapper">
+                        <img src="images/gradepic.png" class="img-responsive" alt="this is a title" >
+                        <a href="/transcript"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/fgrade">
+                                Grades
+                            </a>
+                        </h4>
+                        <p>
+                            Edit or view grades for your students
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="img-wrapper">
+                        <img src="images/schedule.png" class="img-responsive" alt="this is a title" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="#">
+                                Schedule     
+                            </a>
+                        </h4>
+                        <p>
+                            Viewing your Schedule
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/item-3.jpg" class="img-responsive" alt="" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/finfo">
+                                Personal Information        
+                            </a>
+                        </h4>
+                        <p>
+                           View or edit personal information
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-sm-3">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                    <div class="img-wrapper">
+                        <img src="images/catalog.png" class="img-responsive" alt="" >
+                        <a href="/index"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="#">
+                                Course Catalog     
+                            </a>
+                        </h4>
+                        <p>
+                            View Courses that are offered
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+           
+
+        </div>
+
+        
+</section>
+           
+{% endblock %}
