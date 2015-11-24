@@ -35,8 +35,8 @@ handlers:
 - url: /fgrade
   script: fgrade.php
 
-- url: /Fschedule.html
-  script: Fschedule.html
+- url: /coursecatalog
+  script: coursecatalog.php
 
 - url: /test
   script: test.php
