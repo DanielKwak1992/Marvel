@@ -8,7 +8,7 @@ $id=$user->get('id');
 $type=$user->get("type");
 
 
-echo $twig->render('coursecatalog.html', array("id" =>$id, "type" => $type));
+echo $twig->render('createcourse.html', array("id" =>$id, "type" => $type));
 
 
 

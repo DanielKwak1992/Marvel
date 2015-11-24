@@ -1,10 +1,7 @@
-<!DOCTYPE html>
+{% extends "Template.html" %}
+{% block content %}
 
-<html>
-<head>
-	 <title>Course</title>
-</head>
-<body>
+
 <form action="demo_form.asp" method="get">
 Course Number: <input type="text" name="cnumber" style = "width:35px">
 <br>
@@ -66,5 +63,5 @@ Professor:
 <br>
 <button type="submit" value="Submit">Submit</button>
 <button type="reset" value="Reset">Reset</button>
-</body>
-</html>
+
+{% endblock %}

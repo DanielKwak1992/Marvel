@@ -38,6 +38,9 @@ handlers:
 - url: /coursecatalog
   script: coursecatalog.php
 
+- url: /createcourse
+  script: createcourse.php
+
 - url: /test
   script: test.php
 
