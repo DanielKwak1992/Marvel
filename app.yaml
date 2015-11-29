@@ -28,10 +28,10 @@ handlers:
 - url: /admin
   script: admin.php
 
-- url:/resetpassword
+- url: /resetpassword
   script: reset.php
 
-  - url: /faculty
+- url: /faculty
   script: faculty.php
 
 - url: /finfo

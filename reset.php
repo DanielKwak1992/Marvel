@@ -15,7 +15,7 @@ if(isset($_POST['btn-Submit'])){
 
   if ($email!=null)  {
         if ($email==$row['email']) {
-        UPDATE Registration.User SET password='$birthdate' WHERE email = '$email';
+        UPDATE Registration.User SET password= birthdate WHERE email = '$email';
         }
             else{
             echo "Invalid email address"
