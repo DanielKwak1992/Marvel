@@ -25,8 +25,8 @@ handlers:
 - url: /about.html
   script: about.html
 
-- url: /Admin
-  script: Admin.php
+- url: /admin
+  script: admin.php
 
 - url: /faculty
   script: faculty.php
