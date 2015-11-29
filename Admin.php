@@ -8,7 +8,7 @@ $id=$user->get('id');
 $type=$user->get("type");
 
 
-echo $twig->render('Admin.html', array("id" =>$id, "type" => $type));
+echo $twig->render('admin.html', array("id" =>$id, "type" => $type));
 
 
 
