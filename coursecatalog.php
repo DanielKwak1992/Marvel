@@ -6,14 +6,24 @@ $twig = new Twig_Environment($loader);
 $user = new Memcached();
 //$id=$user->get('id');
 //$type=$user->get("type");
-$major=$user->get("major");
-$department=$user->get("department");
+$courseID=$user->('courseID');
+$courseName=$user->get('courseName');
+$credits=$user->get('credits');
+$deptID=$user->get('deptID');
 
 
 
-echo $twig->render('coursecatalog.html', array("major" =>$major, "department" => $department));
+echo $twig->render('coursecatalog.html', array("courseID" =>$courseID, "courseName" => $courseName, "credits" =>$courseName, "deptID" =>$deptID));
 
+$sql=$db->prepare("SELECT * FROM Registration.Course;");
+$sql->execute();
 
+$result=$sql->fetchAll(PDO::FETCH_ASSOC);
 
+if($result->num_rows > 0 {
+	while($row = 4result->fetch_assoc()){
+		echo "<br> major"
+	}
+})
 
 ?>
