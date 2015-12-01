@@ -4,32 +4,27 @@
     <form method="post" action="fgrade.php">
 
         <div class="form-group">
-            <label for="sel1">Select Semester</label>
-                <select class="form-control" id="semester">
-                    <option>Fall</option>
-                    <option>Winter</option>
-                    <option>Spring</option>
-                    <option>Summer</option>
+            <!-- View the courses that the professor teaches then select one and a list of students in course will be displayed-->
+            <label for="sel1">Select Course</label>
+                <select class="form-control" name="course">
+                   <option selected="selected" value=''>--Select Course--</option>
+                    {% for i in course %}
+                        <option value="{{i.courseID}}">{{i.courseID|capitalize}} </option>
+                    {% endfor %}
                 </select>
         </div>
-
-        <div class="form-group">
-            <label for="sel1">Select Year</label>
-                <select class="form-control" id="year">
-                    <option>2015</option>
-                    <option>2016</option>
-                    <option>2017</option>
-                    <option>2018</option>
-                </select>
-        </div>
-        <center><p><input name="button" type="submit" value="edit/view Grades"></p></center>
+        <center><p><input name="button" type="submit" value="Assign Grades"></p></center>
     </form>
 
 <table>
     {# this outputs the result(array) where i is the key and data is the array passed. #}
     {% for i in data %}
+    <!--Display a list of the courses-->
         <tr>
-            <td> {{i.email}} </td>
+            <td>{{i.sectionID}}</td>
+            <td> {{i.courseID}} </td>
+            <td>{{i.Student_userID}}</td>
+            <td>{{i.Grade}}</td>
         </tr>
     {% endfor %}
 </table>
