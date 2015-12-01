@@ -3,92 +3,111 @@
 
 
 {% if data %}
-<br>
-<h1 class='text-center'> Current Registered Classes For <br> {{s}} {{y}}</h1>
-<form action="/adddrop" method="POST">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Department</th>
-		        <th>Course</th>
-		        <th>Section</th>
-		        <th>Class Name</th>
-		        <th>Professor</th>
-		        <th>Credits</th>
-		        <th>Location</th>
-		        <th>Day</th>
-		        <th>Time</th>
-		        <th>Semester</th>
-		        <th>Year</th>
-		        <th>Drop</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for i in data %}
-				<tr>
-					<td>{{i.deptID}}</td>
-			        <td>{{i.CourseID}}</td>
-			        <td>{{i.sectionID}}</td>
-			        <td>{{i.courseName}}</td>
-			        <td>{{i.fName}} {{i.lName}}</td>
-			        <td>{{i.Credits}}</td>
-			        <td>{{i.bldingName}}-{{i.roomNum}}</td>
-			        <td>{{i.timeSlot_Time}}</td>
-			        <td>{{i.timeSlot_Day}}</td>
-			        <td>{{i.semesterID|capitalize}}</td>
-			        <td>{{i.semesterYear}}</td>
-			        <td><input type='checkbox' name="removeclass[]" value='{{i.CourseID}}-{{i.sectionID}}'></td>
-				</tr>
-			{% endfor %}	
-		</tbody>
-	</table>
-	
-	<input type="hidden" name="semester" value="{{s}}" >
-	<input type="hidden" name="year" value="{{y}}" >
-		<div class='col-md-3'></div>
-		  <div class='col-md-2'>
-			  <button name="btn-change" class="btn btn-lg btn-primary btn-block " type="submit">Add Classes</button>
-		  </div>
-		  <div class="col-md-2">
-		  	  <button name="btn-submit" class="btn btn-lg btn-danger btn-block " type="submit">Delete Classes</button>
-		  </div>
-		  <div class='col-md-2'>
-			  <button class="btn btn-lg btn-warning btn-block" href="/adddrop">Re-Select Year</button>
-		  </div>
-</form>
+	<br>
+	<h1 class='text-center'> Current Registered Classes For <br> {{s}} {{y}}</h1>
 
-<div class="row"></div>
-<br>
+	<form action="/adddrop" method="POST">
+		<table id='schedule' class="table table-striped"></table>
 
-
-		{% if err|length %}
+			<br>
+			<input type="hidden" name="semester" value="{{s}}" >
+			<input type="hidden" name="year" value="{{y}}" >
 			<div class='col-md-3'></div>
-			<div class="alert text-center col-md-6 alert-danger">
-			    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			    <strong>Error</strong> <br> {{err}}
-			</div>
-		{% endif %}
+
+				<div class='col-md-2'>
+					<button name="btn-change" class="btn btn-lg btn-primary btn-block " type="submit">Add Classes</button>
+				</div>
+
+				<div class="col-md-2">
+				  	<button name="btn-submit" class="btn btn-lg btn-danger btn-block " type="submit">Drop Classes</button>
+				</div>
+
+				<div class='col-md-2'>
+					<button class="btn btn-lg btn-warning btn-block" href="/adddrop">Re-Select Year</button>
+				</div>
+	</form>
+
+	<div class="row"></div>
+	<br>
+
+	{% if err|length %}
+		<div class='col-md-3'></div>
+		<div class="alert text-center col-md-6 alert-danger">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		    <strong>Error</strong> <br> {{err}}
+		</div>
+	{% endif %}
 
 {% else %}
+
 	<h1 class="text-center">No Registered Classes <br> {{s|capitalize}} {{y}}</h1>
 	<br>
 	<div class='col-md-4'></div>
+
 	<form action="/adddrop" class="col-md-4 text-center" method="POST">
-		 <input type="hidden" name="semester" value="{{s}}" >
-		 <input type="hidden" name="year" value="{{y}}" >
+		<input type="hidden" name="semester" value="{{s}}" >
+		<input type="hidden" name="year" value="{{y}}" >
 		<button name="btn-change" class="btn btn-lg btn-primary btn-block" type="submit">Add Classes</button>
 		<button href='/adddrop' class="btn btn-lg btn-warning btn-block">Re-Select Year</button>
 	</form>
+
 	<div class='row'></div>
 	<br>
 	<div class='col-md-3'></div>
-			{% if err|length %}
-				<div class="alert text-center col-md-6 alert-danger">
-				    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				    <strong>Error</strong> <br> {{err}}
-				</div>
-			{% endif %}
+
+	{% if err|length %}
+		<div class="alert text-center col-md-6 alert-danger">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		    <strong>Error</strong> <br> {{err}}
+		</div>
+	{% endif %}
 
 {% endif %}
 
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in data %}
+			[	"{{i.deptID}}",
+		        "{{i.CourseID}}",
+		        "{{i.sectionID}}",
+		        "{{i.courseName}}",
+		        "{{i.fName}} {{i.lName}}",
+		        "{{i.Credits}}",
+		        "{{i.bldingName}}-{{i.roomNum}}",
+		        "{{i.timeSlot_Day}}",
+		        "{{i.timeSlot_Time}}",
+		        "{{i.semesterID|capitalize}}",
+		        "{{i.semesterYear}}",
+		        "<input type='checkbox' name='removeclass[]' value='{{i.CourseID}}-{{i.sectionID}}'>"
+
+		     ]
+	    {%- if not loop.last -%}
+	      ,
+	    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#schedule').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Department" },
+            { title: "Course" },
+            { title: "Section" },
+            { title: "Class Name" },
+            { title: "Professor" },
+            { title: "Credits" },
+            { title: "Location" },
+            { title: "Day" },
+            { title: "Time" },
+            { title: "Semester" },
+            { title: "Year" },
+            { title: "Drop" },
+        ]
+    } );
+} );
+
+</script>
+
 {% endblock %}
+
