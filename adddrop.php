@@ -79,7 +79,7 @@ if (isset($_POST['btn-submit'])) {
 		$schedule=$sql->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	echo $twig->render('Sschedule.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+	echo $twig->render('Sregistered.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'y' => $y, 's'=> $s, 'data'=>$schedule, 'err' => $err));
 
 }elseif(isset($_POST['btn-change'])){
