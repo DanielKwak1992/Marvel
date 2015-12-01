@@ -25,6 +25,11 @@ handlers:
 - url: /about.html
   script: about.html
 
+- url: /admin
+  script: admin.php
+
+- url: /resetpassword
+  script: reset.php
 
 - url: /faculty
   script: faculty.php
@@ -35,8 +40,11 @@ handlers:
 - url: /fgrade
   script: fgrade.php
 
-- url: /Fschedule.html
-  script: Fschedule.html
+- url: /coursecatalog
+  script: coursecatalog.php
+
+- url: /createcourse
+  script: createcourse.php
 
 - url: /test
   script: test.php
