@@ -11,14 +11,29 @@
                         <form action="finfo.php">
                             <fieldset>
                                 <legend>Personal information:</legend>
-                             <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{check.Street}"> <br>
-                             <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{check.City}"><br>
-                             <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value"{check.Zip}"><br>
-                            <div class="form-group">State:<br><input
-                              type="text" class="form-control" name="state" value="{check.State}"><br><br>
+                                <!-- check is a d2 array so you will need a for loop. -->
+
+                                {% for i in check%}
+                             <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{{i.Street}}"> <br>
+                             <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{{i.City}}"><br>
+                             <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value="{{i.Zip}}"><br>
+                            <div class="form-group">State:<br><input type="text" class="form-control" name="state" value="{{i.State}}"><br><br>
+                                {% endfor %}
+
+                        <!-- alternatively you can use: 
+                            <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{{check.0.Street}}"> <br>
+                            <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{{check.0.City}}"><br>
+                            <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value="{{check.0.Zip}}"><br>
+                            <div class="form-group">State:<br><input type="text" class="form-control" name="state" value="{{check.0.State}}"><br><br>
+
+                            if you dont understand stick with the for loop.
+                        -->
+
+
                              <input name="submit" type="submit" value="Submit">
                              </fieldset>
                         </form>
                     </div>      
         </section>
-        {% endblock %}
+
+{% endblock %}
