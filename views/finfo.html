@@ -11,11 +11,12 @@
                         <form action="finfo.php">
                             <fieldset>
                                 <legend>Personal information:</legend>
-                             <div class="form-group">First name:<br> <input type="text" class="form-control" name="fname" value=""> <br>
-                             <div class="form-group">Last name:<br><input type="text" class="form-control" name="lname" value=""><br>
-                             <div class="form-group">email address:<br><input type="text" class="form-control" name="email" value""><br>
-                             <div class="form-group">Phone number:<br><input type="text" class="form-control" name="pnumber" value""><br><br>
-                             <input type="submit" value="Submit">
+                             <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{check.Street}"> <br>
+                             <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{check.City}"><br>
+                             <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value"{check.Zip}"><br>
+                            <div class="form-group">State:<br><input
+                              type="text" class="form-control" name="state" value="{check.State}"><br><br>
+                             <input name="submit" type="submit" value="Submit">
                              </fieldset>
                         </form>
                     </div>      

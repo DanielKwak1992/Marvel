@@ -1,5 +1,5 @@
 <?php
-include_once "connection.php";
+//include_once "connection.php";
 require 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
