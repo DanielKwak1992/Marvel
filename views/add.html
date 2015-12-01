@@ -1,0 +1,59 @@
+{% extends "Template.html" %}
+{% block content %}
+
+{% if s|length and y|length %}
+	<br>
+	<h1 class='text-center'>Courses For {{s|capitalize}}, {{y}}</h1>
+		<form action="/adddrop" method="POST">
+			<input type="hidden" name="semester" value="{{s}}" >
+		 <input type="hidden" name="year" value="{{y}}" >
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		      	<th>Department</th>
+		        <th>Course</th>
+		        <th>Section</th>
+		        <th>Class Name</th>
+		        <th>Professor</th>
+		        <th>Credits</th>
+		        <th>Location</th>
+		        <th>Day</th>
+		        <th>Time</th>
+		        <th>Semester</th>
+		        <th>Year</th>
+		        <th>Add</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+
+			{% for i in result %}
+		      <tr>
+		        <td>{{i.deptID}}</td>
+		        <td>{{i.CourseID}}</td>
+		        <td>{{i.sectionID}}</td>
+		        <td>{{i.courseName}}</td>
+		        <td>{{i.fName}} {{i.lName}}</td>
+		        <td>{{i.Credits}}</td>
+		        <td>{{i.bldingName}}-{{i.roomNum}}</td>
+		        <td>{{i.timeSlot_Time}}</td>
+		        <td>{{i.timeSlot_Day}}</td>
+		        <td>{{i.semesterID}}</td>
+		        <td>{{i.semesterYear}}</td>
+		        <td><input type='checkbox' name="addclass[]" value='{{i.CourseID}}-{{i.sectionID}}'></td>
+		      </tr>
+		    {% endfor %}
+		      
+		    </tbody>
+		  </table>
+		  <br>
+		  <div class='col-md-6'>
+			  <button name="btn-submit" class="btn btn-lg btn-primary btn-block " type="submit">Add Classes</button>
+		  </div>
+		  <div class='col-md-6'>
+			  <button class="btn btn-lg btn-warning btn-block" href="/adddrop">Re-Select Year</button>
+		  </div>
+		</form>
+{% endif %}
+
+
+{% endblock %}

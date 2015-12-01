@@ -53,5 +53,11 @@ handlers:
 - url: /transcript
   script: transcript.php
 
+- url: /generate
+  script: generate.php
+
+- url: /adddrop
+  script: adddrop.php
+
 - url: /.*
   script: 404.html

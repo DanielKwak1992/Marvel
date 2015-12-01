@@ -11,7 +11,5 @@ $type=$user->get('type');
 
 
 echo $twig->render('student.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type));
-echo $fname;
-echo $lname;
-echo "hello";
+
 ?>
