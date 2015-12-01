@@ -7,6 +7,7 @@ $user = new Memcached();
 $id=$user->get('id');
 $type=$user->get('type');
 $result=$user->get('result');
+$course=$user->('course');
 $CourseID=$user->get('CourseID');
 $Grade=$user->get('Grade');
 $Student_userID=$user->get('Student_userID');
