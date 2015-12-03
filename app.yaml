@@ -67,5 +67,8 @@ handlers:
 - url: /adddrop
   script: adddrop.php
 
+- url: /Vstudent
+  script: Vstudent.php
+
 - url: /.*
   script: 404.html

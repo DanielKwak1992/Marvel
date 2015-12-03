@@ -11,14 +11,15 @@ $id=$user->get('id');
 
 
 if(isset($_POST['btn-Submit'])){
-    $email=$_POST['email'];
+    $email = $_POST['email'];
 
   if ($email!=null)  {
-        if ($email==$row['email']) {
-        UPDATE Registration.User SET password= birthdate WHERE email = "$email";
+        if ($email == $row['email']) {
+        $db->$query = "UPDATE Registration.User SET password= birthdate WHERE email = ".$email."";
+        echo "Password successfully reset";
         }
             else{
-            echo "Invalid email address"
+            echo "Invalid email address";
             }
     }
 }
