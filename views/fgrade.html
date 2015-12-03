@@ -1,20 +1,31 @@
 {% extends "Template.html" %}
 {% block content %}
 
-    <form method="post" action="fgrade.php">
-
-        <div class="form-group">
-            <!-- View the courses that the professor teaches then select one and a list of students in course will be displayed-->
-            <label for="sel1">Select Course</label>
-                <select class="form-control" name="course">
-                   <option selected="selected" value=''>--Select Course--</option>
-                    {% for i in course %}
-                        <option value="{{i.courseID}}">{{i.courseID|capitalize}} </option>
+   <div class="col-md-4"> </div>
+    <form action="fgrade.php" class="col-md-4 text-center" method="POST">
+        <div class="form-group col-md-6">
+            <label for="semester">Select Semester</label>
+                <select class="form-control" name="semester">
+                    <option selected="selected" value=''>--Select Semester--</option>
+                    {% for i in semester %}
+                        <option value="{{i.semesterID}}">{{i.semesterID|capitalize}} </option>
                     {% endfor %}
+
                 </select>
         </div>
-        <center><p><input name="button" type="submit" value="Assign Grades"></p></center>
-    </form>
+
+        <div class="form-group col-md-6">
+            <label for="year">Select Year</label>
+                <select class="form-control" name="year">
+                    <option selected="selected" value=''>--Select Year--</option>
+                    {% for i in year %}
+                        <option value="{{i.semesterYear}}">{{i.semesterYear}} </option>
+                    {% endfor %}
+
+                </select>
+        </div>
+        
+        <button name="btn-submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 
 <table>
     {# this outputs the result(array) where i is the key and data is the array passed. #}
