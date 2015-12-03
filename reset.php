@@ -6,22 +6,25 @@ $twig = new Twig_Environment($loader);
 $user = new Memcached();
 $id=$user->get('id');
 $type=$user->get("type");
+$changed= null;
 
 
-echo $twig->render('resetpassword.html', array("id" =>$id, "type" => $type));
 
 
-if(isset($_POST['btn-Submit'])){
+if(isset($_POST['btn-submit'])){
     $email = $_POST['email'];
 
   if ($email!=null)  {
-        if ($email == $row['email']) {
-        $db->$query = "UPDATE Registration.User SET password= birthdate WHERE email = ".$email."";
-        echo "Password successfully reset";
+        
+        $Pass = $db->prepare ("UPDATE Registration.User SET password = birthdate WHERE email = ".$email."");
+        if ($pass->execute()) {
+        $changed= true;
         }
             else{
-            echo "Invalid email address";
+            $changed= false;
             }
     }
 }
+echo $twig->render('resetpassword.html', array("id" =>$id,"changed"=> $changed, "type" => $type));
+var_dump($email);
 ?>

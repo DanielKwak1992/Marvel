@@ -28,7 +28,7 @@ handlers:
 - url: /admin
   script: admin.php
 
-- url: /resetpassword
+- url: /reset
   script: reset.php
 
 - url: /faculty
@@ -49,7 +49,7 @@ handlers:
 - url: /test
   script: test.php
 
-- url: /logout.php
+- url: /logout
   script: logout.php
 
 - url: /login
@@ -67,8 +67,8 @@ handlers:
 - url: /adddrop
   script: adddrop.php
 
-- url: /Vstudent
-  script: Vstudent.php
+- url: /Sinfo
+  script: Sinfo.php
 
 - url: /.*
   script: 404.html
