@@ -19,6 +19,9 @@ handlers:
 - url: /images
   static_dir: images
 
+- url: /plugin
+  static_dir: plugin
+
 - url: /index
   script: index.html
 
@@ -48,6 +51,9 @@ handlers:
 
 - url: /test
   script: test.php
+
+- url: /sschedule
+  script: Sschedule.php
 
 - url: /logout.php
   script: logout.php

@@ -1,6 +1,26 @@
 {% extends "Template.html" %}
 {% block content %}
+<br>
+<div class='col-md-1'></div>
+<div id='calendar' class='col-md-10'></div>
+<script type="text/javascript">
+$(document).ready(function() {
 
+    $('#calendar').fullCalendar({
+        defaultView: 'agendaWeek',
+        events: [
+            {% for i in schedule %}
+                {
+                title  : '{{i.CourseID}}-{{i.sectionID}} {{i.bldingName}}-{{roomNum}}',
+                start  : '{{i.timeSlot_Time}}',
+                end    : '{{i.timeend}}',
+                allDay : false,
+                dow:[{{i.day}}]
+                },
+            {% endfor %}
+        ]
+    });
 
+});
+</script>
 {% endblock %}
-
