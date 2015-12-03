@@ -2,7 +2,7 @@
 {% block content %}
 
    <div class="col-md-4"> </div>
-    <form action="fgrade.php" class="col-md-4 text-center" method="POST">
+    <form action="/fgrade" class="col-md-4 text-center" method="POST">
         <div class="form-group col-md-6">
             <label for="semester">Select Semester</label>
                 <select class="form-control" name="semester">
@@ -26,19 +26,16 @@
         </div>
         
         <button name="btn-submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+<br>
+        {% if err|length %}
+            <div class="alert text-center alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Error</strong> <br> {{err}}
+            </div>
+        {% endif %}
+    </form>
+<div class="row"> </div>
 
-<table>
-    {# this outputs the result(array) where i is the key and data is the array passed. #}
-    {% for i in data %}
-    <!--Display a list of the courses-->
-        <tr>
-            <td>{{i.sectionID}}</td>
-            <td> {{i.courseID}} </td>
-            <td>{{i.Student_userID}}</td>
-            <td>{{i.Grade}}</td>
-        </tr>
-    {% endfor %}
-</table>
 
      
 {% endblock %}

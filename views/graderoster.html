@@ -1,0 +1,50 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<br>
+	<h1 class='text-center'>Course Roster</h1>
+<form action="/fgrade" method="POST">
+	<input type="hidden" name="semester" value="{{s}}" >
+	<input type="hidden" name="year" value="{{y}}" >
+<table id="roster" class="table table-striped"></table>
+			<br>
+
+			<div class='col-md-4'>
+				<button name="grade-submit" class="btn btn-lg btn-primary btn-block " type="submit">Submit</button>
+		  	</div>
+
+		  	
+</form>
+
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in roster %}
+				[
+					"{{i.Student_userID}}",
+					"{{i.fName}} {{i.lName}}",
+					"<input name='grade' type='text'>"
+					
+			     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#roster').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Student Id" },
+            { title: "Name" },
+            { title: "Grade"},
+           
+            
+            
+        ]
+    } );
+} );
+</script>
+
+{% endblock %}
