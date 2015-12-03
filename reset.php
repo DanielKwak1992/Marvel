@@ -1,25 +1,30 @@
 <?php
+//include_once "connection.php";
 require 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
-
-
 $user = new Memcached();
-require_once "connection.php";
-$err=false;
 $id=$user->get('id');
+$type=$user->get("type");
+$changed= null;
 
 
-if(isset($_POST['btn-Submit'])){
-    $email=$_POST['email'];
+
+
+if(isset($_POST['btn-submit'])){
+    $email = $_POST['email'];
 
   if ($email!=null)  {
-        if ($email==$row['email']) {
-        UPDATE Registration.User SET password= birthdate WHERE email = "$email";
+        
+        $Pass = $db->prepare ("UPDATE Registration.User SET password = birthdate WHERE email = ".$email."");
+        if ($pass->execute()) {
+        $changed= true;
         }
             else{
-            echo "Invalid email address"
+            $changed= false;
             }
     }
 }
+echo $twig->render('resetpassword.html', array("id" =>$id,"changed"=> $changed, "type" => $type));
+var_dump($email);
 ?>

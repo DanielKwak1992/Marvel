@@ -1,0 +1,12 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<body> <center>
+<h2> <em>Enter the User ID of the Faculty Memeber you wish to view below</em> </h2>
+<form action="/Tinfo" method="post">
+UserID: <input type="text" name="userid" style = "width:100px" class="form-control">
+<br>
+<button type="submit" name ="btn-submit" value="submit">Submit</button>
+</form>
+
+{% endblock %}
