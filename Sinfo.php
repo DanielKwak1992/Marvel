@@ -9,6 +9,7 @@ $type=$user->get("type");
 
 
 
+
 if(isset($_POST['btn-submit'])){
     $userid = $_POST['userid'];
 
@@ -16,7 +17,8 @@ if(isset($_POST['btn-submit'])){
         
         $student = $db->prepare ("SELECT * from Registration.User WHERE userid = ".$userid."");
         $student->execute();
+        $result = $student -> fetchAll(PDO :: FETCH_ASSOC);
+        
 }
-echo $twig->render('Vstudent.html', array("id" =>$id, "type" => $type));
-
+echo $twig->render('Vstudent.html', array("id" =>$id, "result"=>$result, "type" => $type));
 ?>

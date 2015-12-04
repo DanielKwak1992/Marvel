@@ -8,6 +8,7 @@ $id=$user->get('id');
 $type=$user->get("type");
 
 
+echo $twig->render('Vfaculty.html', array("id" =>$id, "type" => $type));
 
 if(isset($_POST['btn-submit'])){
     $userid = $_POST['userid'];
@@ -17,6 +18,5 @@ if(isset($_POST['btn-submit'])){
         $faculty = $db->prepare ("SELECT * from Registration.User WHERE userid = ".$userid."");
         $faculty->execute();
 }
-echo $twig->render('Vfaculty.html', array("id" =>$id, "type" => $type));
 
 ?>

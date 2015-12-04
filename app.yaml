@@ -28,8 +28,8 @@ handlers:
 - url: /about.html
   script: about.html
 
-- url: /admin
-  script: admin.php
+- url: /Admin
+  script: Admin.php
 
 - url: /resetpassword
   script: reset.php
@@ -77,6 +77,9 @@ handlers:
 
 - url: /Sinfo
   script: Sinfo.php
+
+- url: /Tinfo
+  script: Tinfo.php
 
 - url: /.*
   script: 404.html
