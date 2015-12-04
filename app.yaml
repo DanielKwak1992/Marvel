@@ -43,6 +43,9 @@ handlers:
 - url: /fgrade
   script: fgrade.php
 
+-url: /fschedule
+  script: fschedule.php
+
 - url: /coursecatalog
   script: coursecatalog.php
 
