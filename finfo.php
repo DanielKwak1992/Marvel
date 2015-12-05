@@ -12,10 +12,14 @@ $email=$user->get('email');
 $fname=$user->get('fname');
 $lname=$user->get('lname');
 $type=$user->get('type');
+$Street=$user->get('Street');
+$City=$user->get('City');
+$Zip=$user->get('Zip');
+$State=$user->get('State');
  
 if(isset($_POST["submit"]))
 {
-    $sql=$db->prepare("UPDATE Street, City, Zip, State FROM REGISTRATION.User WHERE id=".$id."");
+    $sql=$db->prepare("UPDATE Registration.User SET Street = '$Street', City = '$City', Zip = '$Zip', State = '$State' WHERE id=".$id."");
     $sql->execute();
     
 }
