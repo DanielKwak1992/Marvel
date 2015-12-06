@@ -81,9 +81,9 @@
 		        "<input type='checkbox' name='removeclass[]' value='{{i.CourseID}}-{{i.sectionID}}'>"
 
 		     ]
-	    {%- if not loop.last -%}
-	      ,
-	    {% endif %}
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
 		{% endfor %}
 	];
  
@@ -105,7 +105,7 @@ $(document).ready(function() {
             { title: "Drop" },
         ]
     } );
-} );
+});
 
 </script>
 
