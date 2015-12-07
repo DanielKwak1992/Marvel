@@ -1,0 +1,45 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<br>
+<h1 class='text-center'>My Information</h1>
+<h3><em>Your changes have been saved</em></h3>
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in roster %}
+				[
+
+				
+					"{{i.Street}}",
+					"{{i.City}}",
+					"{{i.Zip}}",
+					"{{i.State}}",
+					
+					
+			     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#roster').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Student Id" },
+            { title: "Name" },
+            { title: "Grade"},
+            { title: "Street"},
+            { title: "City"},
+            { title: "Zip Code"},
+            { title: "State"},
+            
+            
+        ]
+    } );
+} );
+</script>
+
+{% endblock %}

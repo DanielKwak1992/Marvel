@@ -23,7 +23,17 @@
 				[
 					"{{i.Student_userID}}",
 					"{{i.fName}} {{i.lName}}",
-					"<input name='grade' type='text'>"
+					<form method="post" action="/fgrade">
+					<select name='grades' id = 'grades'>
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="D">D</option>
+					<option value="F">F</option>
+
+					</select>
+					<form>
+					//"<input name='grade' type='text'>"
 					
 			     ]
 		    {%- if not loop.last -%}

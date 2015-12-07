@@ -21,6 +21,9 @@ if(isset($_POST["submit"]))
 {
     $sql=$db->prepare("UPDATE Registration.User SET Street = '$Street', City = '$City', Zip = '$Zip', State = '$State' WHERE id=".$id."");
     $sql->execute();
+
+    echo $twig->render('grade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+											 'y' => $y, 's'=> $s, 'course'=>$course, 'err' => $err));
     
 }
 // i changed the + to . i dont know why but its the only way that works.

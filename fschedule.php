@@ -35,28 +35,15 @@ if(isset($_POST["btn-submit"]))
 			$course = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
-    echo $twig->render('grade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+    echo $twig->render('fsched.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'y' => $y, 's'=> $s, 'course'=>$course, 'err' => $err));
 
-} else if(isset($_POST["button"])) 
-{
-	$arr=explode("-",$_POST['course']);
-	$sql=$db->prepare("SELECT Student_userID, fName, lName FROM Registration.Enrollment e
-		join Registration.User u
-		on u.userID=e.Student_userID
-		WHERE sectionID=".$arr[1]." AND CourseID=".$arr[0].";");
-	$sql->execute();
-	$result=$sql->fetchAll(PDO::FETCH_ASSOC);
- 
 
-
- 	echo $twig->render('graderoster.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
-											 'y' => $y, 's'=> $s, 'roster'=>$result,  'err' => $err));
 var_dump($result);
 } else if (false)
 {
 	
 }else{
-	echo $twig->render('fgrade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+	echo $twig->render('fschedule.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'year' => $year, 'semester'=> $semester));
 }
