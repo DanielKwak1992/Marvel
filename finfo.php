@@ -23,7 +23,7 @@ if(isset($_POST["submit"]))
     $sql->execute();
 
     echo $twig->render('facultyinfo.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
-											 'y' => $y, 's'=> $s, 'course'=>$course, 'err' => $err));
+											 'y' => $y, 's'=> $s, 'check'=>$check, 'err' => $err));
     
 }
 // i changed the + to . i dont know why but its the only way that works.
