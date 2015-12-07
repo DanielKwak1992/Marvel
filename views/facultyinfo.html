@@ -9,8 +9,11 @@
 	var dataSet = [
 		{% for i in roster %}
 				[
-
-				
+					"{{i.userID}}",
+					"{{i.email}",
+					"{{i.fName}}",
+					"{{i.lName}}",
+					"{{i.birthdate}}",
 					"{{i.Street}}",
 					"{{i.City}}",
 					"{{i.Zip}}",
@@ -28,9 +31,11 @@ $(document).ready(function() {
     $('#roster').DataTable( {
         data: dataSet,
         columns: [
-            { title: "Student Id" },
-            { title: "Name" },
-            { title: "Grade"},
+            { title: "UserID" },
+            { title: "Email"},
+            { title: "First Name" },
+            { title: "Last Name" },
+            { title: "Birth Date"},
             { title: "Street"},
             { title: "City"},
             { title: "Zip Code"},
