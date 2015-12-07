@@ -1,49 +1,53 @@
 <?php
-include_once "connection.php";
 require 'vendor/autoload.php';
+require_once "connection.php";
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
 $user = new Memcached();
-
 $id=$user->get('id');
 $email=$user->get('email');
 $fname=$user->get('fname');
 $lname=$user->get('lname');
 $type=$user->get('type');
 
+$date=getdate();
+$year=$date['year'];
+$month=$date['mon'];
 
-$semestersql=$db->prepare("SELECT * FROM Registration.Semester;");
-$semestersql->execute();
-$semester=$semestersql->fetchAll(PDO::FETCH_ASSOC);
-
-$yearsql=$db->prepare("SELECT semesterYear FROM Registration.Semester group by semesterYear;");
-$yearsql->execute();
-$year=$yearsql->fetchAll(PDO::FETCH_ASSOC);
-
-
-$y=$_POST['year'];
-$s=$_POST['semester'];
-$add=$_POST['addgrade'];
-
-if(isset($_POST["btn-submit"]))
- {
-//Select semester and year
-
-			$sql=$db->prepare("SELECT * FROM Registration.Section WHERE Faculty_userID='".$id."' 
-						AND semesterYear='".$y."' and semesterID='".$s."';");
-			$sql->execute();
-			$course = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-
-    echo $twig->render('fsched.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
-											 'y' => $y, 's'=> $s, 'course'=>$course, 'err' => $err));
-
-
-var_dump($result);
-} else if (false)
-{
-	
+if ($month==1) {
+	$semester='winter';
+}elseif ($month>=2 and $month<=5) {
+	$semester='spring';
+}elseif ($month>=6 and $month<=7) {
+	$semester='summer';
+}elseif ($month>=8 and $month<=12) {
+	$semester='fall';
 }else{
-	echo $twig->render('fschedule.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
-											 'year' => $year, 'semester'=> $semester));
+	$semester=null;
 }
+$semester='spring';
+$sql=$db->prepare("SELECT CourseID, sectionID,bldingName,roomNum,
+
+case timeSlot_Day 
+when 'MW' then '1,3'
+when 'Th' then '2,4' end as day,
+
+timeSlot_Time, 
+
+case timeSlot_Time 
+when '08:00:00' then '9:30:00'
+when '9:40:00' then '10:10:00'
+when '11:20:00' then '12:50:00'
+when '13:00:00' then '14:30:00' 
+when '15:50:00' then '16:20:00'
+when '19:10:00' then '20:40:00'end as timeend
+FROM Registration.Section 
+where semesterID='".$semester."' and semesterYear='".$year."'  and Faculty_userID='".$id."';");
+$sql->execute();
+$schedule = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
+echo $twig->render('fschedule.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+											'schedule'=>$schedule));
+
+?>

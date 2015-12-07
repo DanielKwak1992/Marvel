@@ -1,0 +1,34 @@
+{% extends "Template.html" %}
+{% block content %}
+<br>
+<h1>List of Your Advisees</h1>
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in roster %}
+				[
+					"{{i.Student_userID}}",
+
+					
+			     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#roster').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Student Id" },
+          
+            
+            
+        ]
+    } );
+} );
+</script>
+
+
+{% endblock %}

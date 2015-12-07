@@ -24,7 +24,8 @@ $year=$yearsql->fetchAll(PDO::FETCH_ASSOC);
 
 $y=$_POST['year'];
 $s=$_POST['semester'];
-$add=$_POST['addgrade'];
+
+
 
  // i changed the + to . i dont know why but its the only way that works.
 
@@ -43,6 +44,24 @@ if(isset($_POST["btn-submit"]))
 
 } else if(isset($_POST["button"])) 
 {
+	$gradesubmit=false;
+	if (isset($_POST["grade"])) {
+		$section=$_POST["section"];
+		$course=$_POST["course"];
+		$Grade=$_POST['grade'];
+
+		foreach ($Grade as $key => $value) {
+			$arr=explode("-", $value);
+			$sql=$db->prepare("UPDATE Registration.Enrollment
+			Set Grade= '".$arr[1]."'
+			Where CourseID = '".$course."' AND Student_userID = '".$arr[0]."' AND sectionID ='".$section."' ");
+			$sql->execute();
+
+		}
+		$gradesubmit=true;
+	}
+	
+
 	$arr=explode("-",$_POST['course']);
 	$sql=$db->prepare("SELECT Student_userID, fName, lName FROM Registration.Enrollment e
 		join Registration.User u
@@ -54,12 +73,11 @@ if(isset($_POST["btn-submit"]))
 
 
  	echo $twig->render('graderoster.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
-											 'y' => $y, 's'=> $s, 'roster'=>$result,  'err' => $err));
-var_dump($result);
-} else if (false)
+											 'y' => $y, 's'=> $s, 'roster'=>$result,  'err' => $err,'courseID'=> $arr[0], 'sectionID' => $arr[1], 'gradesubmit'=> $gradesubmit));
+
+
+}  else
 {
-	
-}else{
 	echo $twig->render('fgrade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'year' => $year, 'semester'=> $semester));
 }

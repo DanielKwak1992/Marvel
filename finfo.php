@@ -12,27 +12,29 @@ $email=$user->get('email');
 $fname=$user->get('fname');
 $lname=$user->get('lname');
 $type=$user->get('type');
-$Street=$user->get('Street');
-$City=$user->get('City');
-$Zip=$user->get('Zip');
-$State=$user->get('State');
+$Street=$_POST['street'];
+$City=$_POST['city'];
+$Zip=$_POST['zip'];
+$State=$_POST['state'];
  
 if(isset($_POST["submit"]))
 {
-    $sql=$db->prepare("UPDATE Registration.User SET Street = '$Street', City = '$City', Zip = '$Zip', State = '$State' WHERE id=".$id."");
+    $sql=$db->prepare("UPDATE Registration.User 
+					   SET Street='".$Street."', City='".$City."' ,State='".$State."', Zip='".$Zip."'
+ 					   WHERE userID = '".$id."'");
     $sql->execute();
 
     echo $twig->render('facultyinfo.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'y' => $y, 's'=> $s, 'check'=>$check, 'err' => $err));
-    
-}
-// i changed the + to . i dont know why but its the only way that works.
-$sql=$db->prepare("SELECT * FROM Registration.User where userID='".$id."';");
-$sql->execute();
-$check=$sql->fetchAll(PDO::FETCH_ASSOC);
  
 
 
-
-echo $twig->render('finfo.html', array("id" =>$id, "type" => $type, "check" =>$check));
+ }else
+ {
+ 	$sql=$db->prepare("SELECT * FROM Registration.User where userID='".$id."';");
+	$sql->execute();
+	$check=$sql->fetchAll(PDO::FETCH_ASSOC);
+ 
+	echo $twig->render('finfo.html', array("id" =>$id, "type" => $type, "check" =>$check));
+ }
 ?>

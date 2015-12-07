@@ -40,6 +40,9 @@ handlers:
 - url: /finfo
   script: finfo.php
 
+- url: /fadvisor
+  script: fadvisor.php
+
 - url: /fgrade
   script: fgrade.php
 
