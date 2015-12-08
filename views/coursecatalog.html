@@ -5,9 +5,37 @@
 	<center><h2>Course Catalog</h2></center>
 	<center><p>View full list of courses being offered at Marvel College</p></center>
 
- <script>
- function myFunction(){
- 	alert("Page is Loaded");
- }
- </script>
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in result %}
+				[
+					"{{i.CourseID}}",
+					"{{i.courseName}}",
+					"{{i.Credits}}",
+					"{{i.deptID}}",
+
+
+					
+			     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#result').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Course ID" },
+            { title: "Course Name" },
+            { title: "Credits" },
+            { title: "Dept" },        
+            
+        ]
+    } );
+} );
+</script>
+
 {% endblock %}
