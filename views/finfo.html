@@ -8,32 +8,49 @@
                         Here faculty and staff members can edit/update certain fields pertaining to themselves. </p>
                        
                         <div class="col-sm-4">
-                        <form action="/finfo" method="POST">
-                            <fieldset>
-                                <legend>Personal information:</legend>
-                                <!-- check is a d2 array so you will need a for loop. -->
-
-                                {% for i in check%}
-                             <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{{i.Street}}"> <br>
+                         <table class="table">
+      
+                           <tbody>
+                              <tr>
+                                  <th>User Type</t>
+                                      <td>{{}}</td>
+                                  </tr>
+                              <tr>
+                                  <th>Firstname</th>
+                                      <td>{{}}</td>
+                              </tr>
+                              <tr>
+                                  <th>Lastname</t>
+                                      <td>{{}}</td>
+                             </tr>
+                             <tr>
+                                  <th>Email</t>
+                                      <td>{{}}</td>
+                             </tr>
+                             <tr>
+                                  <th>Street</t>
+                                      <td>{{}}</td>
+                             </tr>
+                             <tr>
+                                  <th>City</t>
+                                      <td>{{}}</td>
+                            </tr>
+                            <tr>
+                                  <th>Zipcode</t>
+                                      <td>{{}}</td>
+                            </tr>
+                             <tr>
+                                  <th>State</t>
+                                      <td>{{}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>      
+        </section>
+{% for i in check%}
+                             <div class="form-group">Street Address:<br> <label type="text" class="form-control" name="street" value="{{i.Street}}"> <br>
                              <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{{i.City}}"><br>
                              <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value="{{i.Zip}}"><br>
                             <div class="form-group">State:<br><input type="text" class="form-control" name="state" value="{{i.State}}"><br><br>
                                 {% endfor %}
-
-                        <!-- alternatively you can use: 
-                            <div class="form-group">Street Address:<br> <input type="text" class="form-control" name="street" value="{{check.0.Street}}"> <br>
-                            <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{{check.0.City}}"><br>
-                            <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value="{{check.0.Zip}}"><br>
-                            <div class="form-group">State:<br><input type="text" class="form-control" name="state" value="{{check.0.State}}"><br><br>
-
-                            if you dont understand stick with the for loop.
-                        -->
-
-
-                             <input name="submit" type="submit" value="Submit">
-                             </fieldset>
-                        </form>
-                    </div>      
-        </section>
-
 {% endblock %}
