@@ -11,7 +11,7 @@ if (null != $type) {
 
 //if $type = pageuser
 
-switch (variable) {
+switch ($type) {
   case 'student':
     header("Location: /student");
     break;
@@ -22,7 +22,7 @@ switch (variable) {
     header("Location: /faculty");
     break;
   case 'researcher':
-    header("Location: /researcher");
+    //header("Location: /researcher");
     break;
   default:
     header("Location: /login");

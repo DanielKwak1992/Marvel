@@ -28,7 +28,7 @@ handlers:
 - url: /about.html
   script: about.html
 
-- url: /Admin
+- url: /admin
   script: Admin.php
 
 - url: /resetpassword
@@ -55,11 +55,11 @@ handlers:
 - url: /createcourse
   script: createcourse.php
 
-- url: /test
-  script: test.php
-
 - url: /sschedule
   script: Sschedule.php
+
+- url: /authorize
+  script: authorize.php
 
 - url: /logout
   script: logout.php
@@ -73,11 +73,13 @@ handlers:
 - url: /transcript
   script: transcript.php
 
-- url: /generate
-  script: generate.php
+- url: /sadvisor
+  script: sAdvisor.php
 
 - url: /adddrop
   script: adddrop.php
+- url: /majorminor
+  script: MajorMinor.php
 
 - url: /Sinfo
   script: Sinfo.php
@@ -86,4 +88,4 @@ handlers:
   script: Tinfo.php
 
 - url: /.*
-  script: 404.html
+  script: 404.php

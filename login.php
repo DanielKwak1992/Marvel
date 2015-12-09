@@ -10,8 +10,20 @@ $err=false;
 $id=$user->get('id');
 
 if ($id!=null) {
-    header('Location: /test');
-    header("Refresh:0");
+    switch (variable) {
+  case 'student':
+    header("Location: /student");
+    break;
+  case 'admin':
+    header("Location: /admin");
+    break;
+  case 'faculty':
+    header("Location: /faculty");
+    break;
+  case 'researcher':
+    header("Location: /researcher");
+    break;
+  }
 }
 
 if(isset($_POST['btn-login'])){

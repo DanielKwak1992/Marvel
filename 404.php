@@ -1,5 +1,4 @@
 <?php
-require_once "sauthorize.php";
 require 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
@@ -11,6 +10,6 @@ $lname=$user->get('lname');
 $type=$user->get('type');
 
 
-echo $twig->render('student.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type));
+echo $twig->render('404.html');
 
 ?>

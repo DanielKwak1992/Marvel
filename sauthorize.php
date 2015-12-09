@@ -2,18 +2,9 @@
 $user = new Memcached();
 $type=$user->get('type');
 
-
-if (null != $type) {
-
-}else{
-    header("Location: /login");
-}
-
-//if $type = pageuser
-
-switch (variable) {
+switch ($type) {
   case 'student':
-    header("Location: /student");
+    //header("Location: /student");
     break;
   case 'admin':
     header("Location: /admin");
@@ -25,7 +16,7 @@ switch (variable) {
     header("Location: /researcher");
     break;
   default:
-    header("Location: /login");
+      header("Location: /login");
     break;
 }
 ?>

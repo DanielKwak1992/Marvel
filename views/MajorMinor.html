@@ -1,0 +1,144 @@
+{% extends "Template.html" %}
+{% block content %}
+<form action="/majorminor" method="POST">
+	<br>
+
+	<div class="panel panel-info col-md-6">
+	<div class="panel-heading"><h2 class='text-center'>Major</h2></div>
+		<div class="panel-body">
+			{% if mac|length %}
+				{% if mac|length >= 1 %}
+					<h1>Declared Major:</h1>
+					
+					<table class="table">
+					    <tbody>
+					      {% for i in mac %}
+					      <tr>
+					        <td style="padding-top:1.5%">{{i.MajorName}} ({{i.majorID}})</td>
+					        <td><button class="btn btn-default" name="major-delete" value="{{i.majorID}}" type="submit">Delete Major</button></td>
+					      </tr>
+					      {% endfor %}
+					      <tr>
+					      	{% if mac|length == 1 %}
+						      	<td>
+						      		<div class="form-group">
+										<label for="MaDepartment">Double Major Department:</label>
+										<select class="form-control" name="MaDepartment" onchange="this.form.submit()">
+											<option>-- Select Department --</option>
+											{% for i in dept %}
+												<option {% if i.deptID == selectedmadept %}selected{% endif %} value="{{i.deptID}}">{{i.deptName}}</option>
+											{% endfor %}
+										</select>
+									</div>
+						      	</td> 
+						      	<td>
+						      		<div class="form-group">
+										<label for="MaMajor">Double Major:</label>
+										<select class="form-control" name="MaMajor" onchange="this.form.submit()">
+											<option>-- Select Major --</option>
+											{% for i in majors %}
+												<option {% if i.majorID == selectedmajor %}selected{% endif %} value="{{i.majorID}}">{{i.MajorName}}</option>
+											{% endfor %}
+										</select>
+									</div>
+						      	</td>
+						     {% else %}
+						     	<td></td><td></td>
+					      	{% endif %}
+					      </tr>
+					    </tbody>
+					 </table>
+					
+				{% endif %}
+			{% else %}
+				<div class="form-group">
+					<label for="MaDepartment">Major Department:</label>
+					<select class="form-control" name="MaDepartment" onchange="this.form.submit()">
+						<option>-- Select Department --</option>
+						{% for i in dept %}
+							<option {% if i.deptID == selectedmadept %}selected{% endif %} value="{{i.deptID}}">{{i.deptName}}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="MaMajor">Major:</label>
+					<select class="form-control" name="MaMajor" onchange="this.form.submit()">
+						<option>-- Select Major --</option>
+						{% for i in majors %}
+							<option {% if i.majorID == selectedmajor %}selected{% endif %} value="{{i.majorID}}">{{i.MajorName}}</option>
+						{% endfor %}
+					</select>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="panel panel-info col-md-6">
+	  <div class="panel-heading"><h2 class='text-center'>Minor</h2></div>
+		<div class="panel-body">
+			{% if mic|length %}
+				{% if mic|length >= 1 %}
+					<h1>Declared Minor:</h1>
+					
+					<table class="table">
+					    <tbody>
+					      {% for i in mic %}
+					      <tr>
+					        <td style="padding-top:1.5%">{{i.minorName}} ({{i.minorID}})</td>
+					        <td><button class="btn btn-default" name="minor-delete" value="{{i.minorID}}" type="submit">Delete Minor</button></td>
+					      </tr>
+					      {% endfor %}
+					      <tr>
+						     	<td></td><td></td>
+					      </tr>
+					    </tbody>
+					 </table>
+				{% endif %}
+			{% else %}
+				<div class="form-group">
+					<label for="MiDepartment">Minor Department:</label>
+					<select class="form-control" name="MiDepartment" onchange="this.form.submit()">
+						<option>-- Select Department --</option>
+						{% for i in dept %}
+							<option {% if i.deptID == selectedmidept %}selected{% endif %} value="{{i.deptID}}">{{i.deptName}}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="MiMinor">Minor:</label>
+					<select class="form-control" name="MiMinor">
+						<option>-- Select Minor --</option>
+						{% for i in minors %}
+							<option {% if i.minorID == selectedminor %}selected{% endif %} value="{{i.minorID}}">{{i.minorName}}</option>
+						{% endfor %}
+					</select>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="row"></div>
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<button name="addmajor-btn" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+	</div>
+</form>
+<div class='row'></div>
+<br>
+{% if success|length %}
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> {{success}}
+</div>
+{% endif %}
+
+{% if err|length %}
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Error!</strong> {{err}}
+</div>
+{% endif %}
+
+{% endblock %}

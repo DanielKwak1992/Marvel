@@ -29,25 +29,25 @@
         <!-- Template CSS Files
         ================================================== -->
         <!-- Twitter Bootstrs CSS -->
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Ionicons Fonts Css -->
-        <link type="text/css" rel="stylesheet" href="css/ionicons.min.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
         <!-- animate css -->
-        <link type="text/css" rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/animate.css">
         <!-- Hero area slider css-->
-        <link type="text/css" rel="stylesheet" href="css/slider.css">
+        <link rel="stylesheet" href="css/slider.css">
         <!-- owl craousel css -->
-        <link type="text/css" rel="stylesheet" href="css/owl.carousel.css">
-        <link type="text/css" rel="stylesheet" href="css/owl.theme.css">
-        <link type="text/css" rel="stylesheet" href="css/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.theme.css">
+        <link rel="stylesheet" href="css/jquery.fancybox.css">
         <!-- template main css file -->
-        <link type="text/css" rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <!-- responsive css -->
-        <link type="text/css" rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/responsive.css">
         <!-- css datatables -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
         <!-- css calender -->
-        <link rel="stylesheet" type="text/css" href="plugin/fullcalendar-2.5.0/fullcalendar.min.css">
+        <link rel="stylesheet" href="plugin/fullcalendar-2.5.0/fullcalendar.min.css">
         
         <!-- Template Javascript Files
         ================================================== -->
@@ -81,20 +81,26 @@
         <header id="top-bar" class="navbar-inverse navbar-fixed-top animated-header">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- responsive nav button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
                     <!-- /responsive nav button -->
                     
                     <!-- logo -->
                     <div class="navbar-brand">
-                        <a href="/index" >
-                            <img src="images/logo.png" alt="">
-                        </a>
+                        {% if type == "faculty"  %}
+                            <a href="/faculty"><img src="images/logo.png" alt=""></a>
+
+                        {% elseif type == "student"  %}
+                            <a href="/student"><img src="images/logo.png" alt=""></a>
+
+                        {% elseif user == "admin"  %}
+                            <a href="faculty.html"><img src="images/logo.png" alt=""></a>
+
+                        {% elseif user == "researcher"  %}
+                            <a href="faculty.html"><img src="images/logo.png" alt=""></a>
+                        {% else %}
+                            <a href="/index" >
+                                <img src="images/logo.png" alt="">
+                            </a>
+                        {% endif %}
                     </div>
                     <!-- /logo -->
                 </div>
@@ -105,32 +111,32 @@
                          <ul class="nav navbar-nav navbar-right">
 
                             {% if type == "faculty"  %}
-                            <li><a href="/faculty" >Home</a></li>
-                            <li><a href="/fgrade">Grades</a></li>
-                            <li><a href="/fschedule">Schedule</a></li>
-                            <li><a href="/fadvisor">Advisee</a></li>
-                            <li><a href="/finfo">Edit Information</a></li>
-                            <li><a href="/coursecatalog">Course Catalog</a></li> 
+                                <li><a href="/faculty" >Home</a></li>
+                                <li><a href="/fgrade">Grades</a></li>
+                                <li><a href="/fschedule">Schedule</a></li>
+                                <li><a href="/fadvisor">Advisee</a></li>
+                                <li><a href="/finfo">Edit Information</a></li> 
                             {% endif %}
 
                             {% if type == "student"  %}
-                            <li><a href="/student" >Home</a></li>
-                            <li><a href="/transcript">Transcript</a></li>
-                            <li><a href="/schedule">Schedule</a></li>
-                            <li><a href="/advisor">advisor</a></li>
+                                <li><a href="/student" >Home</a></li>
+                                <li><a href="/transcript">Transcript</a></li>
+                                <li><a href="/schedule">Schedule</a></li>
+                                <li><a href="/advisor">advisor</a></li>
                             {% endif %}
 
                             {% if user == "admin"  %}
-                            <li><a href="faculty.html" >Home</a></li>
-                            <li><a href="createcourse.html">Create Course</a></li>
+                                <li><a href="faculty.html" >Home</a></li>
+                                <li><a href="createcourse.html">Create Course</a></li>
                             {% endif %}
 
                             {% if user == "researcher"  %}
-                            <li><a href="faculty.html" >Home</a></li>
-                            <li><a href="Fgrade.html">Grades</a></li>
-                            <li><a href="Finfo.html">Edit Information</a></li>
-
+                                <li><a href="faculty.html" >Home</a></li>
+                                <li><a href="Fgrade.html">Grades</a></li>
+                                <li><a href="Finfo.html">Edit Information</a></li>
                             {% endif %}
+                            <li><a href="/coursecatalog">Course Catalog</a></li>
+                            <li><a href="/logout">Logout</a></li>
 
                         </ul>
                     </div>
@@ -152,7 +158,7 @@
                                  {% elseif type == "admin" %} 
                                  Admin Home
                                  {% elseif type == "researcher" %} 
-                                 Researcher homepage 
+                                 Researcher Home 
                                  {% endif %}
                              </h2>
             

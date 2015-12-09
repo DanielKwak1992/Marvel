@@ -1,0 +1,28 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<div class="page-header">
+  <h1>Your Advisor </h1>
+</div>
+{% for i in advisor %}
+	<div class="col-md-5">
+		<h2> Department: {{i.Department_deptID}}</h2>
+		<table class="table ">
+		    <tbody>
+		      <tr>
+		        <th>First Name:</th>
+		        <td>{{i.fName}}</td>
+		      </tr>
+		      <tr>
+		        <th>Last Name:</th>
+		        <td>{{i.lName}}</td>
+		      </tr>
+		      <tr>
+		        <th>Email Adress:</th>
+		        <td>i.email</td>
+		      </tr>
+		    </tbody>
+		</table>
+</div>
+{% endfor %}
+{% endblock %}
