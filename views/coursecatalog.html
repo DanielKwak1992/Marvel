@@ -8,6 +8,7 @@
 
 <script type="text/javascript">
 	var dataSet = [
+<<<<<<< Updated upstream
 		{% for i in catalog %}
 			[	"{{i.deptID}}",
 				"{{i.deptName}}",
@@ -15,6 +16,16 @@
 		        "{{i.courseName}}",
 		        "{{i.Credits}}",
 		     ]
+=======
+		{% for i in result %}
+				[
+					"{{i.CourseID}}",
+					"{{i.courseName}}",
+					"{{i.Credits}}",
+					"{{i.deptID}}",
+		
+			     ]
+>>>>>>> Stashed changes
 		    {%- if not loop.last -%}
 		      ,
 		    {% endif %}

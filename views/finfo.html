@@ -12,7 +12,7 @@
       
                            <tbody>
                               <tr>
-                                  <th>User Type</t>
+                                  <th >User Type</t>
                                       <td>{{}}</td>
                                   </tr>
                               <tr>
@@ -47,10 +47,6 @@
                         </table>
                     </div>      
         </section>
-{% for i in check%}
-                             <div class="form-group">Street Address:<br> <label type="text" class="form-control" name="street" value="{{i.Street}}"> <br>
-                             <div class="form-group">City:<br><input type="text" class="form-control" name="city" value="{{i.City}}"><br>
-                             <div class="form-group">zip-code:<br><input type="text" class="form-control" name="zip" value="{{i.Zip}}"><br>
-                            <div class="form-group">State:<br><input type="text" class="form-control" name="state" value="{{i.State}}"><br><br>
-                                {% endfor %}
+
+                             
 {% endblock %}
