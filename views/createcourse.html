@@ -1,67 +1,43 @@
 {% extends "Template.html" %}
 {% block content %}
-                        <form action="action_page.php">
+                        <form action="/createcourse" method = "post">
                             <fieldset>
                                 <legend>Course information:</legend>
-<div class="form-group">Course Number:<input type="text" class="form-control" value="" name="cnumber" style = "width:80px">
+<div class="form-group">Course Number:<input type="text" class="form-control" value="" name="CourseID" style = "width:80px" >
 <br>
-<div class="form-group">Course Name: <input type="text" class="form-control" value="" name="cname" style = "width: 200px">
+<div class="form-group">Course Name: <input type="text" class="form-control" value="" name="courseName" style = "width: 200px">
 <br>
 Course Type:
-<select class="form-control">
+<select class="form-control" name= "Type">
 <option value= "lecture " >Lecture
 <option value= "lab ">Lab
 <option value= "Net ">Net
 </select>
 <br>
 Department: 
-<select class="form-control">
-  <option value="American Studies">American Studies
-  <option value="Biological Sciences">Biological Sciences
-  <option value="Chemistry & Physics">Chemistry & Physics
-  <option value="Computer Information Systems">Computer Information Systems
-  <option value="English">English
-  <option value="History & Philosophy">History & Philosophy
-  <option value="Mathematics">Mathematics
-  <option value="Modern Languages">Modern Languages
-  <option value="Politics, Economics and Law">Politics, Economics and Law
-  <option value="Psychology">Psychology
-  <option value="Public Health">Public Health
-  <option value="Sociology">Sociology
-  <option value="Visual Arts">Visual Arts
+<select class="form-control" name="deptID">
+  <option value="CS">Computer Science
+  <option value="ENG">English
+  <option value="HIS">History 
+  <option value="Math">Mathematics
+  <option value="PE">Politics, Economics and Law
+  <option value="PY">Psychology
+  <option value="SY">Sociology
 </select>
 <br>
 Credits : 
-<select class="form-control">
+<select class="form-control" name="Credits">
+<option value = "2">2
 <option value = "4">4
-<option value = "8">8
-<option value = "12">12
-<option value = "16">16
 </select>
 <br>
-Time:
-<select class="form-control">
-<option value ="8:00am - 9:45am">8:00am to 9:45am
-<option value ="8:00am - 9:45am">10:00am to 11:45am
-<option value ="8:00am - 9:45am">12:00pm to 1:45pm
-<option value ="8:00am - 9:45am">3:00pm to 4:45pm
-<option value ="8:00am - 9:45am">6:00pm to 7:45pm
-<option value ="8:00am - 9:45am">8:00pm to 9:45pm
-</select>
-<br>
-Professor:
-<select class="form-control">
-<option value = "TBA">TBA
-<option value = "Professor 1">Professor 1
-<option value = "Professor 2">Professor 2
-<option value = "Professor 3">Professor 3
-<option value = "Professor 4">Professor 4
-<option value = "Professor 5">Professor 5
+
 
 </select>
 <br>
 <br>
-<button type="submit" value="Submit">Submit</button>
+<button type="submit" name ="btn-submit" value="Submit">Submit</button>
 <button type="reset" value="Reset">Reset</button>
+</form>
 
 {% endblock %}

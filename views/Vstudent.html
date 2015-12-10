@@ -8,7 +8,44 @@ UserID: <input type="text" name="userid" style = "width:100px" class="form-contr
 <br>
 <button type="submit" name ="btn-submit" value="submit">Submit</button>
 </form>
-{% for i in result %}
-</body>
+</center> </body>
 
+
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in data %}
+			[
+				"{{i.fName}} {{i.lName}}",
+				"{{i.email}}",
+				"{{i.birthdate}}",
+				"{{i.Street}}",
+				"{{i.City}}",
+				"{{i.State}}"
+				"{{i.Zip}}",
+				"{{i.userType}}",
+			]
+			{% endfor %}
+		];
+		
+$(document).ready(function() {
+    $('#result').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Name" },
+            { title: "email" },
+            { title: "Date Of Birth" },
+            { title: "Address" },
+            { title: "City" },
+            { title: "State" },
+            { title: "Zip" },
+            { title: "Title" },
+            { title: "Time" },
+            { title: "Semester" },
+            { title: "Year" },
+            { title: "Drop" },
+        ]
+    } );
+});
+</script>
 {% endblock %}
