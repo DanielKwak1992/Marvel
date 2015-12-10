@@ -3,25 +3,35 @@
 <br>
 <h1>Your student advisement list</h1>
 
-</div>
-	<div class="col-md-5">
-		<table class="table ">
-		    <tbody>
-{% for i in fadvisor %}
-		      <tr>
-		        <th>First Name:</th>
-		        <td>{{i.fName}}</td>
-		      </tr>
-		      <tr>
-		        <th>Last Name:</th>
-		        <td>{{i.lName}}</td>
-		      </tr>
-		      <tr>
-		        <th>Email Adress:</th>
-		        <td>{{i.email}}</td>
-		      </tr>
-{% endfor %}
-		    </tbody>
-		</table>
-</div>
+<table id='catalog' class="table table-striped"></table>
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in fadvisor %}
+			[	"{{i.userID}}",
+				"{{i.fName}}",
+		        "{{i.lName}}",
+		        "{{i.majorID}}",
+		        "{{i.DateOfDeclaration}}",
+		     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#catalog').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Student ID" },
+            { title: "First Name" },
+            { title: "Last Name" },
+            { title: "Major" },
+            { title: "DateOfDeclaration" },
+        ]
+    } );
+});
+
+</script>
 {% endblock %}

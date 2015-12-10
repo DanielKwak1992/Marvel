@@ -23,5 +23,4 @@ $sql->execute();
 $fadvisor=$sql->fetchAll(PDO::FETCH_ASSOC);
 
 echo $twig->render('fadvisor.html', array('id'=>$id, 'type'=>$type, 'fname'=>$fname, 'lname'=>$lname, 'fadvisor'=>$fadvisor));
-
 ?>
