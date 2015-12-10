@@ -1,4 +1,5 @@
 <?php
+require_once "fauthorize.php";
 require 'vendor/autoload.php';
 require_once "connection.php";
 $loader = new Twig_Loader_Filesystem("views");

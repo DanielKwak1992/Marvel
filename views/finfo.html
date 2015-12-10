@@ -11,38 +11,40 @@
                          <table class="table">
       
                            <tbody>
+                            {% for i in check %}
                               <tr>
                                   <th >User Type</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.userID}}</td>
                                   </tr>
                               <tr>
                                   <th>Firstname</th>
-                                      <td>{{}}</td>
+                                      <td>{{i.fName}}</td>
                               </tr>
                               <tr>
                                   <th>Lastname</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.lName}}</td>
                              </tr>
                              <tr>
                                   <th>Email</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.email}}</td>
                              </tr>
                              <tr>
                                   <th>Street</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.Street}}</td>
                              </tr>
                              <tr>
                                   <th>City</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.City}}</td>
                             </tr>
                             <tr>
                                   <th>Zipcode</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.Zip}}</td>
                             </tr>
                              <tr>
                                   <th>State</t>
-                                      <td>{{}}</td>
+                                      <td>{{i.State}}</td>
                             </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>      

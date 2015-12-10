@@ -1,4 +1,5 @@
 <?php
+require_once "fauthorize.php";
 require 'vendor/autoload.php';
 include_once "connection.php";
 $loader = new Twig_Loader_Filesystem("views");
@@ -35,6 +36,8 @@ if(isset($_POST["submit"]))
 	$sql->execute();
 	$check=$sql->fetchAll(PDO::FETCH_ASSOC);
  
-	echo $twig->render('finfo.html', array("id" =>$id, "type" => $type, "check" =>$check));
+	echo $twig->render('finfo.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
+											 'y' => $y, 's'=> $s, 'check'=>$check, 'err' => $err));
+ 
  }
 ?>
