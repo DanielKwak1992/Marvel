@@ -12,13 +12,13 @@ $lname=$user->get('lname');
 $type=$user->get('type');
 
 $sql=$db->prepare("SELECT * FROM Registration.Student_has_Faculty shf
-INNER JOIN Registration.User u
+JOIN Registration.User u
 ON u.userID=shf.Student_userID
-INNER JOIN Registration.Major_Declaration md
-ON u.userID=md.Student_userID
-INNER JOIN Registration.Minor_Declaration ms
-ON u.userID=ms.Student_userID
-WHERE shf.Adviser_faculty_userID = '".$id."'");
+LEFT JOIN Registration.Major_Declaration md
+ON shf.Student_userID=md.Student_userID
+LEFT JOIN Registration.Minor_Declaration ms
+ON shf.Student_userID=ms.Student_userID
+WHERE shf.Adviser_faculty_userID = '".$id."';");
 $sql->execute();
 $fadvisor=$sql->fetchAll(PDO::FETCH_ASSOC);
 
