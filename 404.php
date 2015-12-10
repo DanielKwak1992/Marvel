@@ -9,7 +9,7 @@ $fname=$user->get('fname');
 $lname=$user->get('lname');
 $type=$user->get('type');
 
+$root=$_SERVER['SERVER_ADDR']."/";
 
-echo $twig->render('404.html');
-
+echo $twig->render('404.html', array('root'=>$root));
 ?>

@@ -26,7 +26,6 @@ if ($month==1) {
 }else{
 	$semester=null;
 }
-$semester='spring';
 $sql=$db->prepare("SELECT e.CourseID,e.sectionID,bldingName,roomNum,
 
 case timeSlot_Day 
