@@ -92,7 +92,7 @@
                             <a href="/student"><img src="images/logo.png" alt=""></a>
 
                         {% elseif user == "admin"  %}
-                            <a href="faculty.html"><img src="images/logo.png" alt=""></a>
+                            <a href="/admin"><img src="images/logo.png" alt=""></a>
 
                         {% elseif user == "researcher"  %}
                             <a href="faculty.html"><img src="images/logo.png" alt=""></a>
@@ -127,8 +127,8 @@
                                 <li><a href="/sadvisor">advisor</a></li>
                             {% endif %}
 
-                            {% if user == "admin"  %}
-                                <li><a href="faculty.html" >Home</a></li>
+                            {% if type == "admin"  %}
+                                <li><a href="/admin" >Home</a></li>
                                 <li><a href="/createcourse">Create Course</a></li>
                                 <li><a href="/ecourse">Edit Course</a></li>
                                 <li><a href="/reset">Reset Password</a></li>
