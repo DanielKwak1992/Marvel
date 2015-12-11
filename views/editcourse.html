@@ -1,0 +1,16 @@
+{% extends "Template.html" %}
+{% block content %}
+
+        <section class="works service-page">
+            <div class="container">
+<body>
+<center>
+<h2><em> Please enter the course ID below</em></h2>
+<form action="/ecourse" method="post">
+CourseID: <input type="text" name="CourseID" style = "width:120px" class="form-control">
+<br>
+<button type="submit" name ="btn-submit" value="submit">Submit</button>
+</form>
+</center>
+</body>
+{% endblock %}

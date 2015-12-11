@@ -28,8 +28,8 @@ handlers:
 - url: /about.html
   script: about.html
 
-- url: /Admin
-  script: Admin.php
+- url: /admin
+  script: admin.php
 
 - url: /reset
   script: reset.php
@@ -54,6 +54,9 @@ handlers:
 
 - url: /createcourse
   script: createcourse.php
+
+- url: /ecourse
+  script: ecourse.php
 
 - url: /sschedule
   script: Sschedule.php
