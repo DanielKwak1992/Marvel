@@ -8,9 +8,10 @@ $user = new Memcached();
 require_once "connection.php";
 $err=false;
 $id=$user->get('id');
+$type=$user->get('type');
 
 if ($id!=null) {
-    switch (variable) {
+    switch ($type) {
   case 'student':
     header("Location: /student");
     break;

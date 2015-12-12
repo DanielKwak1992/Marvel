@@ -43,8 +43,7 @@ if(isset($_POST["btn-submit"]))
     echo $twig->render('grade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'y' => $y, 's'=> $s, 'course'=>$course, 'err' => $err));
 
-} else if(isset($_POST["button"])) 
-{
+} else if(isset($_POST["button"])){
 	$gradesubmit=false;
 	if (isset($_POST["grade"])) {
 		$section=$_POST["section"];
@@ -61,10 +60,23 @@ if(isset($_POST["btn-submit"]))
 		}
 		$gradesubmit=true;
 	}
-	
 
 	$arr=explode("-",$_POST['course']);
-	$sql=$db->prepare("SELECT Student_userID, fName, lName FROM Registration.Enrollment e
+	$sql=$db->prepare("SELECT Student_userID, fName, lName,
+		CASE grade
+			WHEN 4.0 THEN 'A'
+			WHEN 3.7 THEN 'A-'
+		    WHEN 3.3 THEN 'B+'
+		    WHEN 3.0 THEN 'B'
+		    WHEN 2.7 THEN 'B-'
+		    WHEN 2.3 THEN 'C+'
+		    WHEN 2.0 THEN 'C'
+		    WHEN 1.7 THEN 'C-'
+		    WHEN 1.3 THEN 'D+'
+		    WHEN 1.0 THEN 'D'
+		    WHEN 0 THEN 'F'
+		END as grade
+		FROM Registration.Enrollment e
 		join Registration.User u
 		on u.userID=e.Student_userID
 		WHERE sectionID=".$arr[1]." AND CourseID=".$arr[0].";");
@@ -75,8 +87,6 @@ if(isset($_POST["btn-submit"]))
 
  	echo $twig->render('graderoster.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
 											 'y' => $y, 's'=> $s, 'roster'=>$result,  'err' => $err,'courseID'=> $arr[0], 'sectionID' => $arr[1], 'gradesubmit'=> $gradesubmit));
-
-
 }  else
 {
 	echo $twig->render('fgrade.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type,
