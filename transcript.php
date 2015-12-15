@@ -22,5 +22,5 @@ $sql->execute();
 $transcript=$sql->fetchAll(PDO::FETCH_ASSOC);
 
 
-echo $twig->render('transcript.html', array('id'=>$id, 'type' => $type,'fname'=>$fname,'lname'=>$lname, 'transcript'=> $transcript ));
+echo $twig->render('Transcript.html', array('id'=>$id, 'type' => $type,'fname'=>$fname,'lname'=>$lname, 'transcript'=> $transcript ));
 ?>
