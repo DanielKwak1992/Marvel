@@ -39,5 +39,12 @@ Credits :
 <button type="submit" name ="btn-submit" value="Submit">Submit</button>
 <button type="reset" value="Reset">Reset</button>
 </form>
+{% if changed == true %}
+Course successfully Created
+{% elseif changed == false %}
+Not Allowed ! Number must be UNIQUE and VALID
+{% elseif changed == null %}
+Please enter an email address
+{% endif %}
 
 {% endblock %}
