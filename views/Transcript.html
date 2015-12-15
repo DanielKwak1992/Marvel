@@ -4,22 +4,22 @@
 <br>
 <table id='transcript' class="table table-striped"></table>
 <script type="text/javascript">
-	var dataSet = [
-		{% for i in transcript %}
-			[	"{{i.deptID}}",
-		        "{{i.CourseID}}",
-		        "{{i.sectionID}}",
-		        "{{i.courseName}}",
-		        "{{i.Credits}}",
-		        "{{i.semesterID|capitalize}}",
-		        "{{i.semesterYear}}",
-		        "{{i.Grade}}"
-		     ]
-		    {%- if not loop.last -%}
-		      ,
-		    {% endif %}
-		{% endfor %}
-	];
+var dataSet = [
+	{% for i in transcript %}
+		[	"{{i.deptID}}",
+	        "{{i.CourseID}}",
+	        "{{i.sectionID}}",
+	        "{{i.courseName}}",
+	        "{{i.Credits}}",
+	        "{{i.semesterID|capitalize}}",
+	        "{{i.semesterYear}}",
+	        "{{i.Grade}}"
+	     ]
+	    {%- if not loop.last -%}
+	      ,
+	    {% endif %}
+	{% endfor %}
+];
  
 $(document).ready(function() {
     $('#transcript').DataTable( {
