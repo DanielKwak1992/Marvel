@@ -90,5 +90,8 @@ handlers:
 - url: /Tinfo
   script: Tinfo.php
 
+- url: /addhold
+  script: addhold.php
+  
 - url: /.*
   script: 404.php

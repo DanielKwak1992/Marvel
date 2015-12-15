@@ -21,6 +21,8 @@ if(isset($_POST['btn-submit'])){
         $student = $db->prepare ("SELECT * from Registration.User WHERE userid = ".$userid."");
         $student->execute();
         $result = $student -> fetchAll(PDO :: FETCH_ASSOC);
+        
+        
         }
         else { echo $userid , "is not correct";
 				}

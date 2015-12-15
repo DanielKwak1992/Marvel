@@ -1,0 +1,18 @@
+{% extends "Template.html" %}
+{% block content %}
+<form action="/addhold" method = "post">
+<fieldset>
+<legend>Please Fill In the following fields below:</legend>
+<div class="form-group">Student ID:<input type="text" class="form-control" value="" name="userID" style = "width:80px" >
+<br>
+Hold Type:
+<select class="form-control" name= "TypeH">
+<option value= "Academic ">Academic
+<option value= "Financial ">Financial
+<option value= "Medical " >Medical
+</select>
+<br>
+<button type="submit" name ="btn-submit" value="Submit">Submit</button>
+<button type="reset" value="Reset">Reset</button>
+</form>
+{% endblock %}
