@@ -7,27 +7,36 @@ $twig = new Twig_Environment($loader);
 $user = new Memcached();
 $id=$user->get('id');
 $type=$user->get("type");
-$userID= $_POST['userID'];
+$Student_userID= $_POST['Student_userID'];
 $TypeH= $_POST['TypeH'];
-$err= false;
+$found= false;
 
 $sql=$db->prepare("SELECT * FROM Registration.holds;");
 $sql->execute();
 $hold=$sql->fetchAll(PDO::FETCH_ASSOC);
 
 	if (isset($_POST['btn-submit'])){
-		if ($userID != null){
-			switch ($TypeH){
-			case 'Academic':
-			break;
-		}
-	}	else { 
-		$err= true; 
-		echo $twig->render('addhold.html',array('error' => $err ));
+		if ($TypeH = 'Academic')
+		{
+				$acad = $db->prepare("UPDATE Registration.holds SET Academic = '1' WHERE Student_userID = '".$Student_userID."';");
+				$acad->execute();
+				$found= true;
 			}
+			elseif($TypeH ='Financial')
+			{
+				$fin = $db->prepare("UPDATE Registration.holds SET Financial = '1' WHERE Student_userID = '".$Student_userID."';");
+				$fin->execute();
+				$found= true;
+			}
+			elseif($TypeH = 'Medical' )
+			{
+				$med = $db->prepare("UPDATE Registration.holds SET Medical = '1' WHERE Student_userID = '".$Student_userID."';");
+				$med->execute();
+				$found= true;
+				}
 }
 
-echo $twig->render('addhold.html', array("id" =>$id, "userID"=> $userID, "type" => $type));
+echo $twig->render('addhold.html', array("id" =>$id, "Student_userID"=> $Student_userID, "type" => $type));
 
 
 ?>

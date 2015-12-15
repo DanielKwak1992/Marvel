@@ -1,0 +1,61 @@
+{% extends "Template.html" %}
+{% block content %}
+
+<body> <center>
+<h2> <em>Enter the User ID of the student you wish to view below</em> </h2>
+<form action="/Sinfo" method="post">
+UserID: <input type="text" name="userid" style = "width:100px" class="form-control">
+<br>
+<button type="submit" name ="btn-submit" value="submit">Submit</button>
+</form>
+                        <div class="col-sm-4">
+                         <table class="table">
+      
+                           <tbody>
+                            {% for i in result %}
+                              <tr>
+                                  <th >User Type</t>
+                                      <td>{{i.userType}}</td>
+                                  </tr>
+                              <tr>
+                                  <th>UserID</th>
+                                      <td>{{i.userID}}</td>
+                              </tr>
+                              <tr>
+                                  <th>Firstname</th>
+                                      <td>{{i.fName}}</td>
+                              </tr>
+                              <tr>
+                                  <th>Lastname</t>
+                                      <td>{{i.lName}}</td>
+                             </tr>
+                             <tr>
+                                  <th>Email</t>
+                                      <td>{{i.email}}</td>
+                             </tr>
+                             <tr>
+                                  <th>Street</t>
+                                      <td>{{i.Street}}</td>
+                             </tr>
+                             <tr>
+                                  <th>City</t>
+                                      <td>{{i.City}}</td>
+                            </tr>
+                            <tr>
+                                  <th>Zipcode</t>
+                                      <td>{{i.Zip}}</td>
+                            </tr>
+                             <tr>
+                                  <th>State</t>
+                                      <td>{{i.State}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>      
+        </section></center> </body>
+
+
+
+</script>
+{% endblock %}

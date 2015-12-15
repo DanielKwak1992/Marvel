@@ -8,6 +8,7 @@ $id=$user->get('id');
 $type=$user->get("type");
 $userid = $_POST['userid'];
 
+
 $sql=$db->prepare("SELECT * FROM Registration.user;");
 $sql->execute();
 $view=$sql->fetchAll(PDO::FETCH_ASSOC);
@@ -27,5 +28,5 @@ if(isset($_POST['btn-submit'])){
         else { echo $userid , "is not correct";
 				}
 	}
-echo $twig->render('Vstudent.html', array("id" =>$id,"userid"=>$userid, "data"=>$result, "type" => $type));
+echo $twig->render('View.html', array("id" =>$id,"userid"=>$userid, "result"=>$result, "type" => $type));
 ?>
