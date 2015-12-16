@@ -1,16 +1,45 @@
 {% extends "Template.html" %}
 {% block content %}
 
-        <section class="works service-page">
-            <div class="container">
-<body>
-<center>
-<h2><em> Please enter the course ID below</em></h2>
-<form action="/ecourse" method="post">
+<fieldset>
+<h2> Please enter the following information below...</h2>
+<form action="/ecourse" method="post">                         <table class="table">
+<tbody>
+<tr>
+<th>Section: <input type="text" name="sectionID" style = "width:80px" class="form-control">
 CourseID: <input type="text" name="CourseID" style = "width:120px" class="form-control">
+Room No: <input type="text" name="roomNum" style = "width:120px" class="form-control">
 <br>
-<button type="submit" name ="btn-submit" value="submit">Submit</button>
+Faculty (ID): <input type="text" name="Faculty_userID" style = "width:120px" class="form-control">
+<br>
+Building: <select name="bldingName" style = "width:120px" class="form-control">
+<option value = "NAB"> NAB </option>
+<option value = "CC"> Campus Center </option>
+<br>
+Day: <select name="timeSlot_Day" style = "width:120px" class="form-control">
+<option value = "MW"> Monday and Wednesdays</option>
+<option value = "Th"> Tuesday and Thursdays</option>
+<br>
+Time: <select name="timeSlot_Time" style = "width:120px" class="form-control">
+<option value = "08:00:00"> 8:00 AM</option>
+<option value = "09:40:00"> 9:40 AM</option>
+<option value = "11:20:00"> 11:20 AM</option>
+<option value = "13:00:00"> 1:00 PM</option>
+<option value = "15:50:00"> 3:50 PM</option>
+<option value = "19:10:00"> 7:10 PM</option>
+<br>
+Semester: <select name="semesterID" style = "width:120px" class="form-control">
+<option value = "fall"> Fall</option>
+<option value = "spring"> Spring</option>
+<br>
+Year: <select name="semesterYear" style = "width:120px" class="form-control">
+<option value = "2015"> 2015</option>
+<option value = "2016"> 2016</option>
+</th></tr>
+<tr><th>
+<button type="submit" style = "width:120px" name ="btn-submit" class="btn btn-lg btn-primary btn-block" value="submit">Submit</button>
+<button type="reset"  style = "width:120px"class="btn btn-lg btn-primary btn-block" value="Reset">Reset</button>
+</tr>
 </form>
-</center>
 </body>
 {% endblock %}
