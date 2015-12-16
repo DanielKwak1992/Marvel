@@ -1,6 +1,6 @@
 <?php
-$user = new Memcached();
-$type=$user->get('type');
+session_start();
+$type=$_SESSION['type'];
 
 
 if (null != $type) {

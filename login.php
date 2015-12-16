@@ -1,14 +1,14 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
 
 
-$user = new Memcached();
 require_once "connection.php";
 $err=false;
-$id=$user->get('id');
-$type=$user->get('type');
+$id=$_SESSION['id'];
+$type=$_SESSION['type'];
 
 if ($id!=null) {
     switch ($type) {
@@ -45,8 +45,13 @@ if(isset($_POST['btn-login'])){
 
   if ($password!=null) {
       if ($password==$row['password']) {
-       $user->setMulti(['id' => $row['userID'], 'email' => $row['email'], 'password' => $row['password'], 'fname' => $row['fName'], 'lname'=>$row['lName'], 'type'=>$row['userType']], 3000);
-       $type=$user->get('type');
+       $_SESSION['id']=$row['userID'];
+       $_SESSION['email']=$row['email'];
+       $_SESSION['password']=$row['password'];
+       $_SESSION['fname']=$row['fName'];
+       $_SESSION['lname']=$row['lName'];
+       $_SESSION['type']=$row['userType'];
+       $type=$_SESSION['type'];
 
           switch ($type) {
             case 'student':

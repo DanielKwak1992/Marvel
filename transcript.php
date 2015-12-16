@@ -4,12 +4,12 @@ require 'vendor/autoload.php';
 require_once "connection.php";
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
-$user = new Memcached();
-$id=$user->get('id');
-$type=$user->get('type');
-$email=$user->get('email');
-$fname=$user->get('fname');
-$lname=$user->get('lname');
+session_start();
+$id=$_SESSION['id'];
+$type=$_SESSION['type'];
+$email=$_SESSION['email'];
+$fname=$_SESSION['fname'];
+$lname=$_SESSION['lname'];
 
 
 $sql=$db->prepare("SELECT * FROM Registration.Student_Grade_History sgh

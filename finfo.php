@@ -3,16 +3,13 @@ require_once "fauthorize.php";
 require 'vendor/autoload.php';
 include_once "connection.php";
 $loader = new Twig_Loader_Filesystem("views");
-$twig = new Twig_Environment($loader, array('debug' => true));
-$twig->addExtension(new Twig_Extension_debug());
-$user = new Memcached();
-//memcache only stores this data any other data you need will need to be queried
-//previously you had other variables that wherent in memcache
-$id=$user->get('id');
-$email=$user->get('email');
-$fname=$user->get('fname');
-$lname=$user->get('lname');
-$type=$user->get('type');
+$twig = new Twig_Environment($loader);
+session_start();
+$id=$_SESSION['id'];
+$email=$_SESSION['email'];
+$fname=$_SESSION['fname'];
+$lname=$_SESSION['lname'];
+$type=$_SESSION['type'];
 $Street=$_POST['street'];
 $City=$_POST['city'];
 $Zip=$_POST['zip'];

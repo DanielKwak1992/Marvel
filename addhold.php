@@ -4,9 +4,9 @@ require 'vendor/autoload.php';
 
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
-$user = new Memcached();
-$id=$user->get('id');
-$type=$user->get("type");
+session_start();
+$id=$_SESSION['id'];
+$type=$_SESSION['type'];
 $Student_userID= $_POST['Student_userID'];
 $TypeH=$_POST['TypeH'];
 $found= false;

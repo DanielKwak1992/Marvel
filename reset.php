@@ -4,11 +4,11 @@ require_once "connection.php";
 
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
-$user = new Memcached();
-$id=$user->get('id');
-$type=$user->get("type");
+session_start();
+$id=$_SESSION['id'];
+$type=$_SESSION['type'];
 $changed= null;
-$email= $_POST['email'];
+$email= $_SESSION['email'];
 
 
 $sql=$db->prepare("SELECT * FROM Registration.user;");

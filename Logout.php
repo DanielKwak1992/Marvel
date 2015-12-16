@@ -1,5 +1,7 @@
 <?php
-$user = new Memcached();
-	$user->flush(0);
+session_start();
+
+session_destroy();
+ 
 	header("Location: /");
 ?>
