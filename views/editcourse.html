@@ -41,5 +41,12 @@ Year: <select name="semesterYear" style = "width:120px" class="form-control">
 <button type="reset"  style = "width:120px"class="btn btn-lg btn-primary btn-block" value="Reset">Reset</button>
 </tr>
 </form>
+{% if changed == true %}
+Changes were successfully made
+{% elseif changed == false %}
+Section  schedule conflict !
+{% elseif changed == null %}
+Please enter All Fields
+{% endif %}
 </body>
 {% endblock %}
