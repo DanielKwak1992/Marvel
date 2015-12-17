@@ -19,7 +19,9 @@ $timeSlot_Time =$_POST['timeSlot_Time'];
 $semesterID =$_POST['semesterID'];
 $semesterYear =$_POST['semesterYear'];
 $changed =null;
-
+if ($_POST['btn-submit']) {
+	echo $twig->render('editconfirm.html', array("id" =>$id, "courseID"=> $CourseID, "type" => $type, "changed" => $changed));
+}else{
 
 		$sql=$db->prepare("SELECT * FROM Registration.Section;");
 			$sql->execute();
@@ -42,7 +44,7 @@ $changed =null;
 	}
 
 echo $twig->render('editcourse.html', array("id" =>$id, "courseID"=> $CourseID, "type" => $type, "changed" => $changed));
-
+}
 
 
 
