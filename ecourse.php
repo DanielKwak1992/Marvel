@@ -28,7 +28,7 @@ $changed =null;
 		if (isset($_POST['btn-submit'])){
 		if (($CourseID != "0") && ($CourseID ="CourseID") && ($timeslot_Time != "timeSlot_Time"){
 
-		$sql=$db->prepare ("Insert into Section (CourseID , sectionID , roomNum , Faculty_userID , bldingName , timeSlot_Day , timeSlot_Time, semesterID , semesterYear)
+		$sql=$db->prepare ("SET foreign_key_checks=0; Insert into Section (CourseID , sectionID , roomNum , Faculty_userID , bldingName , timeSlot_Day , timeSlot_Time, semesterID , semesterYear)
 							VALUES ( '".$CourseID."' , '".$sectionID."' , '".$roomNum."' , '".$Faculty_userID."' , '".$bldingName."', '"$timeSlot_Day"',
 '"$timeSlot_Time"' , '"$semesterID"' , '"$semesterYear"');");
 			$sql->execute();
