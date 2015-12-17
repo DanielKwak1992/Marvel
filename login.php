@@ -67,7 +67,7 @@ if(isset($_POST['btn-login'])){
               break;
 
             case 'researcher':
-              header('Location: /admin');
+              header('Location: /researcher');
               break;
 
             default:

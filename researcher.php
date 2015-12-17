@@ -1,6 +1,5 @@
 <?php
-require_once "fauthorize.php";
-include_once "connection.php";
+require_once "rauthorize.php";
 require 'vendor/autoload.php';
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
@@ -12,9 +11,5 @@ $lname=$_SESSION['lname'];
 $type=$_SESSION['type'];
 
 
-echo $twig->render('faculty.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type));
-
-
-
-
+echo $twig->render('researcher.html', array('id'=>$id,'email' => $email, 'fname' => $fname, 'lname' => $lname, 'type' => $type));
 ?>

@@ -1,6 +1,6 @@
 <?php
-require 'vendor/autoload.php';
 require_once "connection.php";
+require 'vendor/autoload.php';
 
 $loader = new Twig_Loader_Filesystem("views");
 $twig = new Twig_Environment($loader);
@@ -29,6 +29,5 @@ if(isset($_POST['btn-submit'])){
             }
     }
 }
-echo $twig->render('resetpassword.html', array("id" =>$id,"changed"=> $changed,"email"=> $email, "type" => $type));
-var_dump($email);
+echo $twig->render('ResetPassword.html', array("id" =>$id,"changed"=> $changed,"email"=> $email, "type" => $type));
 ?>

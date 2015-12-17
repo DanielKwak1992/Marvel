@@ -1,4 +1,5 @@
 <?php
+include_once "aauthorize.php";
 include_once "connection.php";
 require 'vendor/autoload.php';
 

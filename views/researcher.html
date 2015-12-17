@@ -2,13 +2,77 @@
 {% block content %}
 
 <h1 class="text-center headline wow fadeInUp animated">Welcome {{fname}} {{lname}}</h1>
-  <section class="works service-page">
+<section class="works service-page">
     <div class="container">
         <h2 class="subtitle wow fadeInUp animated" data-wow-delay=".3s" data-wow-duration="500ms">Page Navigation</h2>
             <p class="subtitle-des wow fadeInUp animated" data-wow-delay=".5s" data-wow-duration="500ms">
-                Welcome to the Marvel College. You can use these links to navigate through the site.
+                Welcome to the Student Homepage. You can use these links to navigate to parts of the student site.
             </p>
+        <div class="row">
+            
+            <div class="col-sm-4">
+                 <figure class="wow fadeInLeft animated portfolio-item" data-wow-duration="500ms" data-wow-delay="0ms">
+                    <div class="img-wrapper">
+                        <img src="images/about/about-company.jpg" class="img-responsive" alt="this is a title" >
+                        <a href="/viewfaculty"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/viewfaculty">
+                                View Faculty
+                            </a>
+                        </h4>
+                        <p>
+                            View a list of all faculty
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
 
-    </div>
-  </section>
+            <div class="col-sm-4">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="img-wrapper">
+                        <img src="images/portfolio/students.jpg" class="img-responsive" alt="this is a title" >
+                        <a href="/viewstudents"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/viewstudents">
+                                View Students     
+                            </a>
+                        </h4>
+                        <p>
+                            View a list of all students
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            
+
+            <div class="col-sm-4">
+                <figure class="wow fadeInLeft animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                    <div class="img-wrapper">
+                        <img src="images/catalog2.png" class="img-responsive" alt="" >
+                        <a href="/coursecatalog"><div class="overlay"></div></a>
+                    </div>
+                    <figcaption>
+                        <h4>
+                            <a href="/coursecatalog">
+                                Course Catalog      
+                            </a>
+                        </h4>
+                        <p>
+                            View Courses that Marvel offers!
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+
+           
+
+        </div>
+
+        
+</section>
 {% endblock %}

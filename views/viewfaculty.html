@@ -1,0 +1,47 @@
+{% extends "Template.html" %}
+{% block content %}
+<h1>List of faculty</h1>
+<section class="works service-page">
+    <table id='faculty' class="table table-striped"></table>
+        
+</section>
+<script type="text/javascript">
+    var dataSet = [
+        {% for i in faculty %}
+            [   "{{i.userID}}",
+                "{{i.email}}",
+                "{{i.fName}}",
+                "{{i.lName}}",
+                "{{i.birthdate}}",
+                "{{i.Street}}",
+                "{{i.City}}",
+                "{{i.State}}",
+                "{{i.Zip}}"
+
+             ]
+            {%- if not loop.last -%}
+              ,
+            {% endif %}
+        {% endfor %}
+    ];
+ 
+$(document).ready(function() {
+    $('#faculty').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "User ID" },
+            { title: "Email" },
+            { title: "First Name" },
+            { title: "Last Name" },
+            { title: "BirthDate" },
+            { title: "Street" },
+            { title: "City" },
+            { title: "State" },
+            { title: "Zip" }
+
+        ]
+    } );
+});
+
+</script>
+{% endblock %}

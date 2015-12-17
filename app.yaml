@@ -37,6 +37,15 @@ handlers:
 - url: /faculty
   script: faculty.php
 
+- url: /researcher
+  script: researcher.php
+
+- url: /viewstudents
+  script: viewstudents.php
+
+- url: /viewfaculty
+  script: viewfaculty.php
+
 - url: /finfo
   script: finfo.php
 
