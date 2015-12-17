@@ -1,0 +1,56 @@
+{% extends "Template.html" %}
+{% block content %}
+
+
+{% if data %}
+
+	<div class="row"></div>
+	<br>
+
+	{% if err|length %}
+		<div class='col-md-3'></div>
+		<div class="alert text-center col-md-6 alert-danger">
+		    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		    <strong>Error</strong> <br> {{err}}
+		</div>
+	{% endif %}
+
+<script type="text/javascript">
+	var dataSet = [
+		{% for i in data %}
+			[	"{{i.deptID}}",
+		        "{{i.CourseID}}",
+		        "{{i.sectionID}}",
+		        "{{i.courseName}}",
+		        "{{i.fName}} {{i.lName}}",
+		        "{{i.Credits}}",
+		        "{{i.bldingName}}-{{i.roomNum}}",
+		        "{{i.timeSlot_Day}}",
+		        "{{i.timeSlot_Time}}",
+		        "{{i.semesterID|capitalize}}",
+		        "{{i.semesterYear}}",
+		        "{{<button class='btn' name='btn-edit' value='{{i.CourseID}}-{{i.sectionID}}'>Edit Course</button>}}
+		     ]
+		    {%- if not loop.last -%}
+		      ,
+		    {% endif %}
+		{% endfor %}
+	];
+ 
+$(document).ready(function() {
+    $('#schedule').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Professor" },
+            { title: "Day" },
+            { title: "Time" },
+            { title: "Semester" },
+            { title: "Year" },
+            { title: "Edit" },
+        ]
+    } );
+});
+
+</script>
+
+{% endblock %}

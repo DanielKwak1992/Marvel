@@ -104,6 +104,9 @@ handlers:
 
 - url: /removehold
   script: removehold.php
-
+  
+- url: /newedit
+  script: newedit.php
+  
 - url: /.*
   script: 404.php
