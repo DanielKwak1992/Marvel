@@ -104,11 +104,6 @@ handlers:
 
 - url: /removehold
   script: removehold.php
-  
-<<<<<<< Updated upstream
-=======
 
-  
->>>>>>> Stashed changes
 - url: /.*
   script: 404.php
