@@ -3,7 +3,6 @@
 <br>
 <h1>Your student advisement list</h1>
 
-<<<<<<< Updated upstream
 <table id='catalog' class="table table-striped"></table>
 
 <script type="text/javascript">
@@ -13,7 +12,7 @@
 				"{{i.fName}}",
 		        "{{i.lName}}",
 		        "{{i.majorID}}",
-		        "{{i.DateOfDeclaration}}",
+		        "{{i.email}}",
 		     ]
 		    {%- if not loop.last -%}
 		      ,
@@ -29,13 +28,13 @@ $(document).ready(function() {
             { title: "First Name" },
             { title: "Last Name" },
             { title: "Major" },
-            { title: "DateOfDeclaration" },
+            { title: "Email"},
         ]
     } );
 });
 
 </script>
-=======
+
 </div>
 {% for i in fadvisor %}
 	<div class="col-md-5">
@@ -52,11 +51,10 @@ $(document).ready(function() {
 		      </tr>
 		      <tr>
 		        <th>Email Adress:</th>
-		        <td>i.email</td>
+		        <td>{{i.email}}</td>
 		      </tr>
 		    </tbody>
 		</table>
 </div>
 {% endfor %}
->>>>>>> Stashed changes
 {% endblock %}

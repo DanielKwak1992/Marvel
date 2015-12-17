@@ -19,32 +19,26 @@ $timeSlot_Time =$_POST['timeSlot_Time'];
 $semesterID =$_POST['semesterID'];
 $semesterYear =$_POST['semesterYear'];
 $changed =null;
-if ($_POST['btn-submit']) {
-	echo $twig->render('editconfirm.html', array("id" =>$id, "courseID"=> $CourseID, "type" => $type, "changed" => $changed));
-}else{
 
 		$sql=$db->prepare("SELECT * FROM Registration.Section;");
 			$sql->execute();
 			$edit=$sql->fetchAll(PDO::FETCH_ASSOC);
 			
-		if (isset($_POST['btn-submit'])){
+	if (isset($_POST['btn-submit'])){
 		if (($CourseID != "0") && ($CourseID ="CourseID") && ($timeslot_Time != "timeSlot_Time")){
 
-		$sql=$db->prepare ("Insert into Section (CourseID , sectionID , roomNum , Faculty_userID , bldingName , timeSlot_Day , timeSlot_Time, semesterID , semesterYear)
+		$sql=$db->prepare ("SET foreign_key_checks=0; Insert into Section (CourseID , sectionID , roomNum , Faculty_userID , bldingName , timeSlot_Day , timeSlot_Time, semesterID , semesterYear)
 							VALUES ( '".$CourseID."' , '".$sectionID."' , '".$roomNum."' , '".$Faculty_userID."' , '".$bldingName."', '".$timeSlot_Day."',
-'".$timeSlot_Time."' , '".$semesterID."' , '".$semesterYear."');");
+						'".$timeSlot_Time."' , '".$semesterID."' , '".$semesterYear."');");
 			$sql->execute();
-			echo "Course successfully created";
+			
 			$changed= true;
+		}else {
+			
 		}
-			else {
-			echo "Error: " ; //need to output an error
-			$changed= false;
-	}
 	}
 
 echo $twig->render('editcourse.html', array("id" =>$id, "courseID"=> $CourseID, "type" => $type, "changed" => $changed));
-}
 
 
 

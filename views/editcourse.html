@@ -48,11 +48,17 @@ Year: <select name="semesterYear" style = "width:120px" class="form-control">
 </tr>
 </form>
 {% if changed == true %}
-Changes were successfully made
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> Changes where Sucessfully made
+</div>
 {% elseif changed == false %}
-Section  schedule conflict !
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Error!</strong> Schedule Section Conflict
+</div>
 {% elseif changed == null %}
-Please enter All Fields
+
 {% endif %}
 </body>
 {% endblock %}
