@@ -1,12 +1,12 @@
 {% extends "Template.html" %}
 {% block content %}
-<form action="/addhold" method = "post">
+<form action="/removehold" method = "post">
 <fieldset>
 <legend>Please Fill In the following fields below:</legend>
 <div class="form-group">Student ID:<input type="text" class="form-control" value="" name="Student_userID" style = "width:80px" >
 <br>
 Hold Type:
-<select class="form-control" style = "width:200px" name= "TypeH">
+<select class="form-control" style = "width:120px" name= "TypeH">
 <option value= "Academic">Academic</option>
 <option value= "Financial">Financial</option>
 <option value= "Medical">Medical</option>

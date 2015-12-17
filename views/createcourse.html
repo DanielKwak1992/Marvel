@@ -2,20 +2,20 @@
 {% block content %}
                         <form action="/createcourse" method = "post">
                             <fieldset>
-                                <legend>Course information:</legend>
+                                <center><legend>Create Course Below:</legend>
 <div class="form-group">Course Number:<input type="text" class="form-control" value="" name="CourseID" style = "width:80px" >
 <br>
 <div class="form-group">Course Name: <input type="text" class="form-control" value="" name="courseName" style = "width: 200px">
 <br>
 Course Type:
-<select class="form-control" name= "Type">
+<select class="form-control" style = "width:120px" name= "Type">
 <option value= "lecture " >Lecture
 <option value= "lab ">Lab
 <option value= "Net ">Net
 </select>
 <br>
 Department: 
-<select class="form-control" name="deptID">
+<select class="form-control" style = "width:200px" name="deptID">
   <option value="CS">Computer Science
   <option value="ENG">English
   <option value="HIS">History 
@@ -26,7 +26,7 @@ Department:
 </select>
 <br>
 Credits : 
-<select class="form-control" name="Credits">
+<select class="form-control" style = "width:80px" name="Credits">
 <option value = "2">2
 <option value = "4">4
 </select>
@@ -36,9 +36,10 @@ Credits :
 </select>
 <br>
 <br>
-<button type="submit" name ="btn-submit" value="Submit">Submit</button>
-<button type="reset" value="Reset">Reset</button>
+<button type="submit" class="btn btn-lg btn-primary btn-block" style = "width:120px" name ="btn-submit" value="Submit">Submit</button>
+<button type="reset" class="btn btn-lg btn-primary btn-block" style = "width:120px" value="Reset">Reset</button>
 </form>
+</center>
 {% if changed == true %}
 Course successfully Created
 {% elseif changed == false %}
